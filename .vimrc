@@ -80,3 +80,5 @@ nmap <silent> <leader>e :NERDTreeToggle<CR>
 nmap <silent> <leader>E :NERDTreeFocus<CR>
 let g:NERDTreeMapCloseDir = 'h'
 let g:NERDTreeMapActivateNode = 'l'
+let g:NERDTreeMapPreview = 'gl'
+let g:NERDTreeMapNewFile = 'a'
