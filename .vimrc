@@ -82,3 +82,6 @@ let g:NERDTreeMapCloseDir = 'h'
 let g:NERDTreeMapActivateNode = 'l'
 let g:NERDTreeMapPreview = 'gl'
 let g:NERDTreeMapNewFile = 'a'
+
+" set java formatting for formatting commands
+autocmd FileType java setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
