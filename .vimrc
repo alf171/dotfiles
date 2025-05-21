@@ -83,5 +83,11 @@ let g:NERDTreeMapActivateNode = 'l'
 let g:NERDTreeMapPreview = 'gl'
 let g:NERDTreeMapNewFile = 'a'
 
+" move up and down
+set scrolloff=15
+
+" search is case insenitive
+set ignorecase
+
 " set java formatting for formatting commands
 autocmd FileType java setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
