@@ -31,10 +31,17 @@ export PATH="$PATH:/Users/alaffont/.local/bin"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS="
+  --bind=ctrl-j:down
+  --bind=ctrl-k:up
+"
+alias v="fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim"
+alias t="tmux -f /dev/null new-session \; source-file ~/.tmux.conf"
 
 # git shortcuts
 alias gs="git status --short"
 alias gd="git diff"
+alias gds="git diff --staged"
 alias ga="git add"
 alias gc="git commit"
 alias gp="git push"

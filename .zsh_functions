@@ -29,4 +29,22 @@ function smite() {
   fc -W
 }
 
+# for visual and insert mode cursor icons 
+function zle-keymap-select {
+  if [[ $KEYMAP == vicmd ]]; then
+    echo -ne '\e[2 q'   # block cursor (normal mode)
+  else
+    echo -ne '\e[6 q'   # bar cursor (insert mode)
+  fi
+}
+zle -N zle-keymap-select
+
+# same as above
+function zle-line-init {
+  zle -K viins
+  echo -ne '\e[6 q'
+}
+zle -N zle-line-init
+
+export KEYTIMEOUT=1
 

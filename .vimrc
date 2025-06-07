@@ -94,5 +94,8 @@ set scrolloff=15
 " search is case insenitive
 set ignorecase
 
+" share clipborad with vim
+set clipboard=unnamedplus
+
 " set java formatting for formatting commands
 autocmd FileType java setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
