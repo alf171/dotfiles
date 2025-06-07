@@ -1,0 +1,32 @@
+function smite() {
+  setopt LOCAL_OPTIONS ERR_RETURN PIPE_FAIL
+
+  # Ensure history is fully loaded
+  fc -R
+
+  local opts=(-I)
+  if [[ $1 == '-a' ]]; then
+    opts=()
+  elif [[ -n $1 ]]; then
+    print >&2 'usage: smite [-a]'
+    return 1
+  fi
+
+  # Use full history, sorted oldest first
+  local selected
+  selected=$(fc -l "${opts[@]}" 1 | fzf --no-sort --tac --multi)
+  [[ -z $selected ]] && return 0
+
+  local histnum
+  while IFS= read -r line; do
+    histnum=${line%%[^0-9]*}
+    if [[ -n $histnum ]]; then
+      print "Removing history entry: $line"
+      builtin history -d $((histnum - 1))
+    fi
+  done <<< "$selected"
+
+  fc -W
+}
+
+

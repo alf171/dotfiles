@@ -23,6 +23,9 @@ PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_c
 # enable vi mode
 bindkey -v
 
+# zsh functions
+source ~/.zsh_functions
+
 # Created by `pipx` on 2025-03-01 19:07:01
 export PATH="$PATH:/Users/alaffont/.local/bin"
 

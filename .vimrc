@@ -26,6 +26,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'machakann/vim-highlightedyank'
 Plugin 'preservim/nerdtree'
+Plugin 'PhilRunninger/nerdtree-visual-selection'
 
 " Rust setup
 Plugin 'rust-lang/rust.vim'
@@ -78,6 +79,10 @@ nnoremap <leader>F :Rg<CR>
 " nerd tree
 nmap <silent> <leader>e :NERDTreeToggle<CR>
 nmap <silent> <leader>E :NERDTreeFocus<CR>
+let g:NERDTreeMapQuit = 'q'
+let g:NERDTreeMapDelete = 'd'
+let g:NERDTreeMapNewFile = 'n'
+let g:NERDTreeMapNewDir = 'N'
 let g:NERDTreeMapCloseDir = 'h'
 let g:NERDTreeMapActivateNode = 'l'
 let g:NERDTreeMapPreview = 'gl'
