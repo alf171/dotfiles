@@ -99,3 +99,4 @@ set clipboard=unnamedplus
 
 " set java formatting for formatting commands
 autocmd FileType java setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
+Plugin 'wakatime/vim-wakatime'
