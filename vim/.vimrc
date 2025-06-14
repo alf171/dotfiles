@@ -27,6 +27,8 @@ Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'machakann/vim-highlightedyank'
 Plugin 'preservim/nerdtree'
 Plugin 'PhilRunninger/nerdtree-visual-selection'
+" tmux bindings within vim
+Plugin 'christoomey/vim-tmux-navigator'
 
 " Rust setup
 Plugin 'rust-lang/rust.vim'
