@@ -38,6 +38,7 @@ export FZF_DEFAULT_OPTS="
 
 # nvim
 alias v="fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim"
+alias n="nvim"
 
 # tmux
 alias t="tmux -f /dev/null new-session \; source-file ~/.tmux.conf"
