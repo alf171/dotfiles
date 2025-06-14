@@ -35,8 +35,14 @@ export FZF_DEFAULT_OPTS="
   --bind=ctrl-j:down
   --bind=ctrl-k:up
 "
+
+# nvim
 alias v="fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim"
+
+# tmux
 alias t="tmux -f /dev/null new-session \; source-file ~/.tmux.conf"
+alias tl="tmux list-sessions"
+alias ta="tmux attach-session"
 
 # git shortcuts
 alias gs="git status --short"
@@ -50,3 +56,7 @@ alias gl="git log"
 alias gb="git branch"
 alias gi="git init"
 alias gcl="git clone"
+
+# ignore <C-d>
+setopt IGNORE_EOF
+alias reload="source ~/.zshrc && echo '.zshrc reloaded ✅'"
