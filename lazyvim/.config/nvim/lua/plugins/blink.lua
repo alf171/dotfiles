@@ -26,7 +26,8 @@ return {
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
         keymap = {
-            preset = "super-tab",
+            preset = "enter",
+            ["<TAB>"] = { "accept", "fallback" },
             ["<C-k>"] = { "select_prev", "fallback" },
             ["<C-j>"] = { "select_next", "fallback" },
         },

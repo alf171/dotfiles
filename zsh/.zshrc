@@ -61,3 +61,4 @@ alias gcl="git clone"
 # ignore <C-d>
 setopt IGNORE_EOF
 alias reload="source ~/.zshrc && echo '.zshrc reloaded ✅'"
+
