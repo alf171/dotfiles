@@ -46,19 +46,26 @@ alias tl="tmux list-sessions"
 alias ta="tmux attach-session"
 
 # git shortcuts
-alias gs="git status --short"
+alias gs="git status"
 alias gd="git diff"
 alias gds="git diff --staged"
 alias ga="git add"
 alias gc="git commit"
-alias gp="git push"
-alias gu="git pull"
+# no git push command since it conflicts with git pull && isn't used that often in prod code
+alias gp="git pull"
+alias gpr="git pull --rebase"
 alias gl="git log"
 alias gb="git branch"
 alias gi="git init"
 alias gcl="git clone"
+alias gr = "git restore"
+alias grs="git restore --staged"
 
 # ignore <C-d>
 setopt IGNORE_EOF
 alias reload="source ~/.zshrc && echo '.zshrc reloaded ✅'"
+
+# setup java paths
+export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include"
 
