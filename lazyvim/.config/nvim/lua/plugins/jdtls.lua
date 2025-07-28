@@ -1,4 +1,5 @@
 -- java lsp
+-- ~/.config/nvim/lua/plugins/jdtls.lua
 return {
     "neovim/nvim-lspconfig",
     opts = {
@@ -8,8 +9,12 @@ return {
                     ["language/status"] = function() end,
                     ["$/progress"] = function() end,
                 })
+
+                -- manually set project root
+                opts.root_dir = require("lspconfig.util").root_pattern(".jdtls-root")
+
                 require("lspconfig").jdtls.setup(opts)
-                return true -- prevents LazyVim from doing default setup
+                return true
             end,
         },
     },
