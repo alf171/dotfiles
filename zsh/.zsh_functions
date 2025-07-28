@@ -48,3 +48,16 @@ zle -N zle-line-init
 
 export KEYTIMEOUT=1
 
+zoxide_fzf() {
+  local dir
+  dir=$(zoxide query -l | fzf --height=40% --reverse --prompt="zoxide > " --no-mouse 2> /dev/null)
+  if [ -n "$dir" ]; then
+	  BUFFER="cd ${dir}"
+	  zle reset-prompt
+	  zle accept-line
+  else
+    zle reset-prompt
+  fi
+}
+zle -N zoxide_fzf
+

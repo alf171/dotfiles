@@ -58,7 +58,7 @@ alias gl="git log"
 alias gb="git branch"
 alias gi="git init"
 alias gcl="git clone"
-alias gr = "git restore"
+alias gr="git restore"
 alias grs="git restore --staged"
 
 # ignore <C-d>
@@ -68,4 +68,9 @@ alias reload="source ~/.zshrc && echo '.zshrc reloaded ✅'"
 # setup java paths
 export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include"
+
+# zoxide
+eval "$(zoxide init zsh)"
+bindkey '^G' zoxide_fzf
+alias zf='zoxide query -l | fzf --height=40% --reverse --prompt="zoxide > " | xargs -r cd'
 
