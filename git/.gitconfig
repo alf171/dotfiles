@@ -1,0 +1,19 @@
+[user]
+	name = alf171
+	email = alfonso.laffont@gmail.com
+
+[core]
+	compression = 9
+	whitespace = error
+	preloadindex = true
+
+[advice]
+	addEmptyPathspec = false
+	pushNonFastForward = false
+	statusHints = false
+
+[diff]
+	context = 3
+	renames = copies
+	interHunkContext = 10
+
