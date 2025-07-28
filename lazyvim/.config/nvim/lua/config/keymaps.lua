@@ -8,8 +8,8 @@ vim.keymap.set("n", "<leader>w<C-l>", ":rightbelow vsplit<CR>", opts)
 vim.keymap.set("n", "<leader>w<C-k>", ":leftabove split<CR>", opts)
 vim.keymap.set("n", "<leader>w<C-j>", ":rightbelow split<CR>", opts)
 -- Leader + w + Cap-direction adjust size
-vim.keymap.set("n", "<leader>wH", ":vertical resize +5<CR>", opts)
-vim.keymap.set("n", "<leader>wL", ":vertical resize -5<CR>", opts)
+vim.keymap.set("n", "<leader>wH", ":vertical resize -5<CR>", opts)
+vim.keymap.set("n", "<leader>wL", ":vertical resize +5<CR>", opts)
 vim.keymap.set("n", "<leader>wJ", ":resize -5<CR>", opts)
 vim.keymap.set("n", "<leader>wK", ":resize +5<CR>", opts)
 
