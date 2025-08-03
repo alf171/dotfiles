@@ -41,7 +41,7 @@ alias v="fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvi
 alias n="nvim"
 
 # tmux
-alias t="tmux -f /dev/null new-session \; source-file ~/.tmux.conf"
+alias t="tmux -f ~/.tmux.conf new-session"
 alias tl="tmux list-sessions"
 alias ta="tmux attach-session"
 

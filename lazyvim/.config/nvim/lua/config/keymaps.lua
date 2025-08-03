@@ -13,7 +13,7 @@ vim.keymap.set("n", "<leader>wL", ":vertical resize +5<CR>", opts)
 vim.keymap.set("n", "<leader>wJ", ":resize -5<CR>", opts)
 vim.keymap.set("n", "<leader>wK", ":resize +5<CR>", opts)
 
--- B to goto Def
+-- B to goto Def -- TODO: doesn't work
 vim.keymap.set("n", "<C-b>", "<Nop>", opts)
 vim.keymap.set("n", "<C-b>", function()
     vim.lsp.buf.definition()

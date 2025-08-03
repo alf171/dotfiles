@@ -68,9 +68,13 @@ map Y y$
 " search for yank
 vnoremap // y/<C-R>"<CR>N
 
-"" Navigate completion menu with Ctrl-j and Ctrl-k
+" Navigate completion menu with Ctrl-j and Ctrl-k
 inoremap <C-j> <C-n>
 inoremap <C-k> <C-p>
+
+" make indent forward and back only use one >< in visual mode
+nnoremap < <<<CR>==
+nnoremap > >><CR>==
 
 " fzf vim
 set rtp+=~/.fzf
