@@ -53,6 +53,7 @@ alias ga="git add"
 alias gc="git commit"
 # no git push command since it conflicts with git pull && isn't used that often in prod code
 alias gp="git pull"
+alias gpu="git push"
 alias gpr="git pull --rebase"
 alias gl="git log"
 alias gb="git branch"
