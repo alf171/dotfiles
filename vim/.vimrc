@@ -97,8 +97,9 @@ let g:NERDTreeMapNewFile = 'a'
 " move up and down
 set scrolloff=15
 
-" search is case insenitive
+" improve search
 set ignorecase
+set smartcase
 
 " share clipborad with vim
 set clipboard=unnamedplus,unnamed,autoselect
