@@ -24,7 +24,7 @@ export FZF_DEFAULT_OPTS="
 # nvim
 alias v="fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim"
 alias n="nvim"
-alias vim="vim"
+alias vim="nvim"
 
 # tmux
 alias t="tmux -f ~/.tmux.conf new-session"
@@ -50,6 +50,8 @@ alias gi="git init"
 alias gcl="git clone"
 alias gr="git restore"
 alias grs="git restore --staged"
+alias gst="git stash"
+alias gstp="git stash pop"
 
 # ignore <C-d>
 setopt IGNORE_EOF
