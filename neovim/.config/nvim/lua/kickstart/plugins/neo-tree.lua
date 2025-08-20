@@ -1,25 +1,30 @@
 return {
   'nvim-neo-tree/neo-tree.nvim',
-  version = '*',
-  dependencies = {
-    'nvim-lua/plenary.nvim',
-    'nvim-tree/nvim-web-devicons',
-    'MunifTanjim/nui.nvim',
-  },
   lazy = false,
   keys = {
-    { '<leader>e', ':Neotree toggle left<CR>', desc = 'Toggle Explorer on and off', silent = true },
-  },
-  opts = {
-    filesystem = {
-      window = {
-        mappings = {
-          ['j'] = 'move_cursor_down',
-          ['k'] = 'move_cursor_up',
-          ['h'] = 'close_node',
-          ['l'] = 'open',
-        },
-      },
+    {
+      '<leader>e',
+      function()
+        require('neo-tree.command').execute { toggle = true, position = 'left' }
+      end,
+      desc = 'Toggle Explorer on and off',
+      silent = true,
     },
   },
+  opts = function(_, opts)
+    opts.filesystem = opts.filesystem or {}
+    opts.filesystem.filtered_items = vim.tbl_deep_extend('force', opts.filesystem.filtered_items or {}, {
+      visible = true,
+      hide_dotfiles = false,
+      hide_gitignored = false,
+      hide_by_name = {},
+      hide_by_pattern = {},
+      never_show = {},
+      never_show_by_pattern = {},
+    })
+    opts.filesystem.window = vim.tbl_deep_extend('force', opts.filesystem.window or {}, {
+      mappings = { j = 'move_cursor_down', k = 'move_cursor_up', h = 'close_node', l = 'open' },
+    })
+    return opts
+  end,
 }
