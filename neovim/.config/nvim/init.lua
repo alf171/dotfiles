@@ -76,6 +76,10 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
+-- swap jump motion keys
+vim.keymap.set('n', '<C-i>', '<C-o>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-o>', '<C-i>', { noremap = true, silent = true })
+
 -- [[ Basic Keymaps ]]
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 

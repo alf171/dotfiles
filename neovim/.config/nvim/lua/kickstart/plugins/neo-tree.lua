@@ -28,8 +28,18 @@ return {
       never_show = {},
       never_show_by_pattern = {},
     })
+
+    -- Auto-refresh on disk changes
+    opts.filesystem.use_libuv_file_watcher = true
+
+    -- keep the tree synced to the current buffer
+    opts.follow_current_file = { enabled = true }
+
     opts.filesystem.window = vim.tbl_deep_extend('force', opts.filesystem.window or {}, {
-      mappings = { j = 'move_cursor_down', k = 'move_cursor_up', h = 'close_node', l = 'open' },
+      mappings = {
+        h = 'close_node',
+        l = 'open',
+      },
     })
     return opts
   end,
