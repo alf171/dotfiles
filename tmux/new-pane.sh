@@ -18,7 +18,7 @@ if [[ $# -eq 1 ]]; then
   selected=$1
 else
   selected=$(find ~/dotfiles ~/Desktop/projects \
-    -mindepth 1 -maxdepth 1 -type d 2>/dev/null | fzf) || exit 0
+    -mindepth 1 -maxdepth 1 -type d 2>/dev/null | fzf --height=100% --border --reverse) || exit 0
 fi
 
 [[ -z $selected ]] && exit 0

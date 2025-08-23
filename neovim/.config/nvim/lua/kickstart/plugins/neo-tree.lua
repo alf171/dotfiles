@@ -20,13 +20,9 @@ return {
   opts = function(_, opts)
     opts.filesystem = opts.filesystem or {}
     opts.filesystem.filtered_items = vim.tbl_deep_extend('force', opts.filesystem.filtered_items or {}, {
-      visible = true,
-      hide_dotfiles = false,
-      hide_gitignored = false,
-      hide_by_name = {},
-      hide_by_pattern = {},
-      never_show = {},
-      never_show_by_pattern = {},
+      visible = false,
+      hide_dotfiles = true,
+      hide_gitignored = true,
     })
 
     -- Auto-refresh on disk changes
