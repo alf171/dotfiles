@@ -35,6 +35,7 @@ return {
       mappings = {
         h = 'close_node',
         l = 'open',
+        ['<C-t>'] = 'open_tabnew',
       },
     })
     return opts

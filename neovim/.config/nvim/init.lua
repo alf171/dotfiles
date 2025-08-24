@@ -6,11 +6,6 @@ vim.keymap.set('n', '<Space>', '<Nop>', { noremap = true, silent = true })
 -- use nerd font
 vim.g.have_nerd_font = true
 
--- [[ Setting options ]]
--- See `:help vim.o`
--- NOTE: You can change these options as you wish!
---  For more options, you can see `:help option-list`
-
 -- Make line numbers default
 vim.o.number = true
 
@@ -48,6 +43,10 @@ vim.o.splitbelow = true
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
+
+-- improve editing files across multiple sessions
+vim.opt.autoread = true
+vim.opt.swapfile = false
 
 -- Filetype overrides
 vim.api.nvim_create_autocmd('FileType', {
@@ -101,6 +100,10 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- Move between tabs with H and L
+vim.keymap.set('n', 'H', 'gT', { desc = 'Go to previous tab' })
+vim.keymap.set('n', 'L', 'gt', { desc = 'Go to next tab' })
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -582,3 +585,5 @@ require('lazy').setup({
     },
   },
 })
+
+pcall(require, 'custom.autocmds')
