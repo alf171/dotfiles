@@ -1,6 +1,7 @@
 return {
   -- core
   { import = 'plugins.lsp' },
+  { import = 'plugins.blink' },
   { import = 'plugins.neo-tree' },
   { import = 'plugins.telescope' },
   { import = 'plugins.theme' },

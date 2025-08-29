@@ -36,11 +36,6 @@ return {
         -- Jump to the type of the word under your cursor.
         map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
 
-        -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
-        ---@param client vim.lsp.Client
-        ---@param method vim.lsp.protocol.Method
-        ---@param bufnr? integer some lsp support methods only in specific files
-        ---@return boolean
         local function client_supports_method(client, method, bufnr)
           if vim.fn.has 'nvim-0.11' == 1 then
             return client:supports_method(method, bufnr)
@@ -49,11 +44,6 @@ return {
           end
         end
 
-        -- The following two autocommands are used to highlight references of the
-        -- word under your cursor when your cursor rests there for a little while.
-        --    See `:help CursorHold` for information about when this is executed
-        --
-        -- When you move your cursor, the highlights will be cleared (the second autocommand).
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
           local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
@@ -131,9 +121,7 @@ return {
         settings = {
           Lua = {
             completion = { callSnippet = 'Replace' },
-            diagnostics = {
-              globals = { 'vim' },
-            },
+            diagnostics = { globals = { 'vim' } },
           },
         },
       },
@@ -148,22 +136,10 @@ return {
         end,
       },
     }
-    -- Ensure the servers and tools above are installed
-    --
-    -- To check the current status of installed tools and/or manually install
-    -- other tools, you can run
-    --    :Mason
-    --
-    -- You can press `g?` for help in this menu.
-    --
-    -- `mason` had to be setup earlier: to configure its options see the
-    -- `dependencies` table for `nvim-lspconfig` above.
-    --
-    -- You can add other tools here that you want Mason to install
-    -- for you, so that they are available from within Neovim.
+
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
-      'stylua', -- Used to format Lua code
+      'stylua',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
