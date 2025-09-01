@@ -32,7 +32,7 @@ vim.o.inccommand = 'split'
 vim.o.signcolumn = 'yes'
 vim.o.cursorline = true
 vim.o.scrolloff = 10
-vim.o.confirm = true   -- ask to save on quit instead of erroring
+vim.o.confirm = true -- ask to save on quit instead of erroring
 
 -- Performance
 vim.o.updatetime = 250
@@ -51,6 +51,5 @@ vim.opt.autoread = true
 vim.opt.swapfile = false
 
 -- Spell check
-vim.opt.spell = true
-vim.opt.spelllang = { 'en_us' }
-
+-- vim.opt.spell = true
+-- vim.opt.spelllang = { 'en_us' }

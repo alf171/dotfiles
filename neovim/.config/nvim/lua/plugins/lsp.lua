@@ -6,6 +6,15 @@ return {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
     { 'j-hui/fidget.nvim', opts = {} },
     'saghen/blink.cmp',
+    {
+      'folke/lazydev.nvim',
+      ft = 'lua',
+      opts = {
+        library = {
+          { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+        },
+      },
+    },
   },
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
@@ -25,16 +34,16 @@ return {
         end, '[G]oto [D]efinition')
 
         -- telescope go to def
-        map('grd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+        -- map('gdt', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
 
         -- Find references for the word under your cursor.
-        map('grr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+        map('gu', require('telescope.builtin').lsp_references, '[G]oto [U]sages')
 
         -- Jump to the implementation of the word under your cursor.
-        map('gri', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+        map('gi', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
 
         -- Jump to the type of the word under your cursor.
-        map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
+        map('gt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
 
         local function client_supports_method(client, method, bufnr)
           if vim.fn.has 'nvim-0.11' == 1 then
@@ -46,7 +55,7 @@ return {
 
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
-          local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
+          local highlight_augroup = vim.api.nvim_create_augroup('lsp-highlight', { clear = false })
           vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
             buffer = event.buf,
             group = highlight_augroup,
@@ -60,18 +69,14 @@ return {
           })
 
           vim.api.nvim_create_autocmd('LspDetach', {
-            group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
+            group = vim.api.nvim_create_augroup('lsp-detach', { clear = true }),
             callback = function(event2)
               vim.lsp.buf.clear_references()
-              vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event2.buf }
+              vim.api.nvim_clear_autocmds { group = 'lsp-highlight', buffer = event2.buf }
             end,
           })
         end
 
-        -- The following code creates a keymap to toggle inlay hints in your
-        -- code, if the language server you are using supports them
-        --
-        -- This may be unwanted, since they displace some of your code
         if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
           map('<leader>th', function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
@@ -117,14 +122,7 @@ return {
       clangd = {
         cmd = { mason_bin, '--background-index', '--enable-config' },
       },
-      lua_ls = {
-        settings = {
-          Lua = {
-            completion = { callSnippet = 'Replace' },
-            diagnostics = { globals = { 'vim' } },
-          },
-        },
-      },
+      lua_ls = {},
     }
 
     require('mason-lspconfig').setup {
@@ -142,20 +140,5 @@ return {
       'stylua',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
-
-    require('mason-lspconfig').setup {
-      ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-      automatic_installation = false,
-      handlers = {
-        function(server_name)
-          local server = servers[server_name] or {}
-          -- This handles overriding only values explicitly passed
-          -- by the server configuration above. Useful when disabling
-          -- certain features of an LSP (for example, turning off formatting for ts_ls)
-          server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          require('lspconfig')[server_name].setup(server)
-        end,
-      },
-    }
   end,
 }

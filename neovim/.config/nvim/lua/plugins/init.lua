@@ -11,12 +11,15 @@ return {
   { import = 'plugins.replace' },
   { import = 'plugins.surround' },
 
+  -- misc
+  { import = 'plugins.tmux' },
+
   -- fancy
   { import = 'plugins.harpoon' },
   { import = 'plugins.autopairs' },
   { import = 'plugins.lint' },
   { import = 'plugins.indent_line' },
-  -- { import = 'plugins.gitsigns' },
+  { import = 'plugins.gitsigns' },
   { import = 'plugins.conform' },
   'folke/todo-comments.nvim',
 }
