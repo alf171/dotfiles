@@ -1,5 +1,5 @@
 -- this is a very minimal flash implementation to just support s as search
--- this is to interfer with S" and the speed of f"
+-- this is to not interfer with S" and the speed of f"
 return {
   'folke/flash.nvim',
   event = 'VeryLazy',
