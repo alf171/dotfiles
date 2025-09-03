@@ -2,6 +2,7 @@
 -- delete surround ds <text>
 -- add surround ys <motion> <text>
 -- S<text> also adds surrounding whatever is visually selected
+-- TODO: support something like csnq' (change surround next quote into ')
 return {
   'kylechui/nvim-surround',
   event = 'VeryLazy',

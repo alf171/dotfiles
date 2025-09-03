@@ -26,3 +26,14 @@ vim.keymap.set('n', 'L', 'gt', { desc = 'Next tab' })
 -- Swap <C-i>/<C-o>
 vim.keymap.set('n', '<C-i>', '<C-o>')
 vim.keymap.set('n', '<C-o>', '<C-i>')
+
+-- TODO: evaluate using default or new binding here
+-- gh, gl to go to start and end of line
+vim.keymap.set({ 'n', 'x' }, 'gh', '<Nop>', { noremap = true, silent = true })
+vim.keymap.set({ 'n', 'x' }, 'gh', '^')
+vim.keymap.set({ 'n', 'x' }, 'gl', '<Nop>', { noremap = true, silent = true })
+vim.keymap.set({ 'n', 'x' }, 'gl', '$')
+
+-- disable s key since we will focus on flash using it
+vim.keymap.set('n', 's', '<Nop>')
+vim.keymap.set('n', 'S', '<Nop>')

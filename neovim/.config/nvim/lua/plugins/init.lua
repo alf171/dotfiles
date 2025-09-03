@@ -10,6 +10,7 @@ return {
   -- motions
   { import = 'plugins.replace' },
   { import = 'plugins.surround' },
+  { import = 'plugins.flash' },
 
   -- misc
   { import = 'plugins.tmux' },

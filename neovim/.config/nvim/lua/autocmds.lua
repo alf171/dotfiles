@@ -25,3 +25,5 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     require('conform').format { bufnr = args.buf, lsp_format = 'fallback' }
   end,
 })
+
+-- TODO: consider walking up tree of BufEnter looking for .git for gitsigns to always work without needing to explicity enter at working dir

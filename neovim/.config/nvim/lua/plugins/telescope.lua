@@ -25,8 +25,12 @@ return {
             ['<C-j>'] = actions.move_selection_next,
           },
         },
+        file_ignore_patterns = {
+          'node_modules',
+          'build',
+          'env',
+        },
       },
-      -- pickers = {},
       extensions = {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
