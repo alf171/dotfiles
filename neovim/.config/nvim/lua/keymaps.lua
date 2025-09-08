@@ -37,3 +37,10 @@ vim.keymap.set({ 'n', 'x' }, 'gl', '$')
 -- disable s key since we will focus on flash using it
 vim.keymap.set('n', 's', '<Nop>')
 vim.keymap.set('n', 'S', '<Nop>')
+
+-- Remap X
+vim.keymap.set('n', 'X', 'cc<Esc>')
+
+-- Remap gx since it conflicts with mini operators -- use gg instead (go does same thing)
+vim.keymap.set('n', 'gg', '<Nop>')
+vim.keymap.set('n', 'gg', '<Cmd>silent! execute "!open " . shellescape(expand("<cfile>"))<CR>', { desc = 'Open link under cursor' })

@@ -8,8 +8,7 @@ return {
   { import = 'plugins.wakatime' },
 
   -- motions
-  { import = 'plugins.replace' },
-  { import = 'plugins.surround' },
+  { import = 'plugins.mini' },
   { import = 'plugins.flash' },
 
   -- misc
