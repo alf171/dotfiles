@@ -15,6 +15,7 @@ return {
   { import = 'plugins.tmux' },
 
   -- fancy
+  { import = 'plugins.fugitive' },
   { import = 'plugins.harpoon' },
   { import = 'plugins.autopairs' },
   { import = 'plugins.lint' },
