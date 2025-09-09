@@ -41,6 +41,9 @@ vim.keymap.set('n', 'S', '<Nop>')
 -- Remap X
 vim.keymap.set('n', 'X', 'cc<Esc>')
 
+-- Disable S in visual mode
+vim.keymap.set('x', 'S', '<Nop>', { silent = true })
+
 -- Remap gx since it conflicts with mini operators -- use gg instead (go does same thing)
 vim.keymap.set('n', 'gg', '<Nop>')
 vim.keymap.set('n', 'gg', '<Cmd>silent! execute "!open " . shellescape(expand("<cfile>"))<CR>', { desc = 'Open link under cursor' })

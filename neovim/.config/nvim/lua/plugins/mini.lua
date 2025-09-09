@@ -28,6 +28,8 @@ return {
       search_method = 'cover_or_next',
       n_lines = 200,
     }
+    -- Map S in visual mode to add surround in visual mode
+    vim.keymap.set('x', 'S', [[:<C-u>lua MiniSurround.add('visual')<CR>]], { desc = 'Add surround (visual)', silent = true, noremap = true })
 
     -- gr/grr for replace
     -- gm/gmm for multiply
