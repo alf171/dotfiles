@@ -2,14 +2,19 @@
 alias g++='g++ -std=c++17'
 
 autoload -U colors && colors
-# add alias color
-PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
-
-# enable vi mode
-bindkey -v
 
 # zsh functions
 source ~/.zsh_functions
+
+# enable vi mode
+setopt promptpercent
+setopt prompt_subst
+bindkey -v
+typeset -g MODE_PROMPT="%F{blue}[I]%f "
+zle -N zle-line-init _zle_update_mode
+zle -N zle-keymap-select _zle_update_mode
+PROMPT='${MODE_PROMPT}%F{red}%n%f@%F{blue}%m%f %F{yellow}%~%f %# '
+unset RPS1 RPS2
 
 # Created by `pipx` on 2025-03-01 19:07:01
 export PATH="$PATH:/Users/alaffont/.local/bin"
@@ -67,4 +72,3 @@ export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include"
 eval "$(zoxide init zsh)"
 bindkey '^G' zoxide_fzf
 alias zf='zoxide query -l | fzf --height=40% --reverse --prompt="zoxide > " | xargs -r cd'
-

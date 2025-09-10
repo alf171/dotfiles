@@ -3,3 +3,5 @@ theme = tokyonight-storm
 cursor-style = block
 cursor-style-blink = false
 cursor-invert-fg-bg = true
+
+shell-integration-features = no-cursor

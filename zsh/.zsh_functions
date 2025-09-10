@@ -61,3 +61,13 @@ zoxide_fzf() {
 }
 zle -N zoxide_fzf
 
+function _zle_update_mode() {
+  if [[ $KEYMAP == vicmd ]]; then
+    typeset -g MODE_PROMPT="%F{green}[N]%f "
+      print -n -- $'\e[2 q'
+  elif [[ $KEYMAP == main || $KEYMAP == viins ]]; then
+    typeset -g MODE_PROMPT="%F{blue}[I]%f "
+    print -n -- $'\e[6 q'
+  fi
+  zle reset-prompt
+}
