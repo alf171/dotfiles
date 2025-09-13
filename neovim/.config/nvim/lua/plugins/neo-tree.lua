@@ -31,6 +31,21 @@ return {
     -- keep the tree synced to the current buffer
     opts.follow_current_file = { enabled = true }
 
+    -- opts.event_handler = {
+    --   event = 'file_open_requested',
+    --   handler = function()
+    --     require('neo-tree.command').execute { action = 'close' }
+    --   end,
+    -- }
+    opts.event_handlers = {
+      {
+        event = 'file_open_requested',
+        handler = function()
+          require('neo-tree.command').execute { action = 'close' }
+        end,
+      },
+    }
+
     opts.filesystem.window = vim.tbl_deep_extend('force', opts.filesystem.window or {}, {
       mappings = {
         h = 'close_node',
