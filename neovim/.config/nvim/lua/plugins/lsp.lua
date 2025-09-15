@@ -123,6 +123,9 @@ return {
         cmd = { mason_bin, '--background-index', '--enable-config' },
       },
       lua_ls = {},
+      marksman = {},
+      tinymist = {},
+      typstyle = {},
     }
 
     require('mason-lspconfig').setup {

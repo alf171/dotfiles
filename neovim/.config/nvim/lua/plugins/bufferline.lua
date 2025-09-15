@@ -7,9 +7,11 @@ return {
       return
     end
 
-    vim.keymap.set('n', 'L', ':BufferLineCycleNext<CR>', { silent = true })
-    vim.keymap.set('n', 'H', ':BufferLineCyclePrev<CR>', { silent = true })
+    -- vim.keymap.set('n', 'L', ':BufferLineCycleNext<CR>', { silent = true })
+    -- vim.keymap.set('n', 'H', ':BufferLineCyclePrev<CR>', { silent = true })
     vim.keymap.set('n', '<leader>c', '<cmd>bd<CR>', { silent = true, desc = 'Close tab (buffer)' })
+    vim.keymap.set('n', '<C-/>', '<cmd>BufferLinePick<CR>', { desc = 'Pick buffer' })
+    vim.keymap.set('n', '<leader>bc', '<cmd>BufferLinePickClose<CR>', { desc = 'Pick buffer to close' })
 
     vim.opt.termguicolors = true
     bufferline.setup {}

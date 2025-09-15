@@ -31,12 +31,12 @@ vim.o.inccommand = 'split'
 -- UI
 vim.o.signcolumn = 'yes'
 vim.o.cursorline = true
-vim.o.scrolloff = 10
+vim.o.scrolloff = 5
 vim.o.confirm = true -- ask to save on quit instead of erroring
 
 -- Performance
 vim.o.updatetime = 250
-vim.o.timeoutlen = 300
+vim.o.timeoutlen = 400
 
 -- Splits
 vim.o.splitright = true

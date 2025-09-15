@@ -23,6 +23,7 @@ return {
   { import = 'plugins.indent_line' },
   { import = 'plugins.gitsigns' },
   { import = 'plugins.conform' },
-  { import = 'plugins.tabs' },
+  { import = 'plugins.bufferline' },
+  { import = 'plugins.lang.typst-preview' },
   'folke/todo-comments.nvim',
 }

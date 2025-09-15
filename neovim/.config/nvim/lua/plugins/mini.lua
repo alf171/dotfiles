@@ -15,7 +15,7 @@ return {
     -- dsf, dsq, csnq/cslq (for repeatable)
     require('mini.surround').setup {
       mappings = {
-        add = 'ys',
+        add = 'gs',
         delete = 'ds',
         replace = 'cs',
         find = '',
@@ -37,7 +37,33 @@ return {
     -- g=/g== to evaluate using Lua JIT
     -- gs/gss sort
     require('mini.operators').setup {
+      sort = { prefix = '' },
       mappings = {},
+    }
+
+    -- animate cursor movement
+    local animate = require 'mini.animate'
+    animate.setup {
+      cursor = {
+        enabled = true,
+        timing = animate.gen_timing.linear { duration = 200, unit = 'total' },
+      },
+      scroll = {
+        enabled = true,
+        timing = animate.gen_timing.linear { duration = 200, unit = 'total' },
+      },
+      resize = {
+        enabled = true,
+        timing = animate.gen_timing.linear { duration = 200, unit = 'total' },
+      },
+      open = {
+        enabled = true,
+        timing = animate.gen_timing.linear { duration = 200, unit = 'total' },
+      },
+      closed = {
+        enabled = true,
+        timing = animate.gen_timing.linear { duration = 200, unit = 'total' },
+      },
     }
   end,
 }
