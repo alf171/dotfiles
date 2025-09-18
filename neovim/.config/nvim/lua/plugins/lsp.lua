@@ -123,6 +123,7 @@ return {
         cmd = { mason_bin, '--background-index', '--enable-config' },
       },
       lua_ls = {},
+      ts_ls = {},
       marksman = {},
       tinymist = {},
       typstyle = {},
