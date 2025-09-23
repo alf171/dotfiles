@@ -11,7 +11,7 @@ return {
     {
       '<leader>e',
       function()
-        require('neo-tree.command').execute { toggle = true, position = 'left' }
+        require('neo-tree.command').execute { toggle = true, position = 'float' }
       end,
       desc = 'Toggle Explorer on and off',
       silent = true,

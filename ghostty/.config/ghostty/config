@@ -1,4 +1,4 @@
-theme = tokyonight-storm
+theme = tokyonight storm
 
 cursor-style = block
 cursor-style-blink = false
