@@ -34,7 +34,7 @@ return {
         end, '[G]oto [D]efinition')
 
         -- telescope go to def
-        -- map('gdt', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+        map('g<C-d>', require('telescope.builtin').lsp_definitions, 'Telescope [G]oto [D]efinition')
 
         -- Find references for the word under your cursor.
         map('gu', require('telescope.builtin').lsp_references, '[G]oto [U]sages')
@@ -129,20 +129,16 @@ return {
       typstyle = {},
     }
 
-    require('mason-lspconfig').setup {
-      handlers = {
-        function(server_name)
-          local opts = servers[server_name] or {}
-          opts.capabilities = vim.tbl_deep_extend('force', {}, capabilities, opts.capabilities or {})
-          require('lspconfig')[server_name].setup(opts)
-        end,
-      },
-    }
-
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       'stylua',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+
+    for server, cfg in pairs(servers) do
+      cfg.capabilities = vim.tbl_deep_extend('force', {}, capabilities, cfg.capabilities or {})
+      vim.lsp.config(server, cfg)
+      vim.lsp.enable(server)
+    end
   end,
 }

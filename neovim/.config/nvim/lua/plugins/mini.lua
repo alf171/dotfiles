@@ -15,7 +15,7 @@ return {
     -- dsf, dsq, csnq/cslq (for repeatable)
     require('mini.surround').setup {
       mappings = {
-        add = 'gs',
+        add = 'ga',
         delete = 'ds',
         replace = 'cs',
         find = '',
