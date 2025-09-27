@@ -53,3 +53,7 @@ vim.opt.swapfile = false
 -- Spell check
 -- vim.opt.spell = true
 -- vim.opt.spelllang = { 'en_us' }
+
+-- tree sitter folding
+-- vim.opt.foldmethod = 'expr'
+-- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'

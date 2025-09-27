@@ -10,6 +10,7 @@ return {
       c = { 'clang-format' },
       cpp = { 'clang-format' },
       typst = { 'typstyle' },
+      json = { 'jq' },
     },
     formatters = {
       ['clang-format'] = {
