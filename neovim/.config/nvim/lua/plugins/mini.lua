@@ -35,7 +35,7 @@ return {
     -- gm/gmm for multiply
     -- gx/gxx to exchange
     -- g=/g== to evaluate using Lua JIT
-    -- gs/gss sort
+    -- default: gs/gss current: (NONE) sort
     require('mini.operators').setup {
       sort = { prefix = '' },
       mappings = {},
@@ -65,5 +65,8 @@ return {
         timing = animate.gen_timing.linear { duration = 200, unit = 'total' },
       },
     }
+
+    -- improved status bar
+    require('mini.statusline').setup {}
   end,
 }
