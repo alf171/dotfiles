@@ -72,3 +72,7 @@ export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include"
 eval "$(zoxide init zsh)"
 bindkey '^G' zoxide_fzf
 alias zf='zoxide query -l | fzf --height=40% --reverse --prompt="zoxide > " | xargs -r cd'
+
+#zig
+export ZIG_LOCAL_CACHE_DIR="$HOME/.zig-local-cache"
+export ZIG_GLOBAL_CACHE_DIR="$HOME/.zig-global-cache"
