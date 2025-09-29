@@ -128,6 +128,14 @@ return {
       tinymist = {},
       typstyle = {},
       jsonls = {},
+      zls = {
+        settings = {
+          zls = {
+            enable_build_on_save = true,
+            build_on_save_step = 'run',
+          },
+        },
+      },
     }
 
     local ensure_installed = vim.tbl_keys(servers or {})

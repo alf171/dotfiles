@@ -68,5 +68,14 @@ return {
 
     -- improved status bar
     require('mini.statusline').setup {}
+
+    -- improved splitting and joining
+    require('mini.splitjoin').setup {
+      mappings = {
+        toggle = '',
+        split = 'gS',
+        join = 'gJ',
+      },
+    }
   end,
 }

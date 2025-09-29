@@ -47,3 +47,7 @@ vim.keymap.set('x', 'S', '<Nop>', { silent = true })
 -- Remap gx since it conflicts with mini operators -- use gg instead (go does same thing)
 vim.keymap.set('n', 'gg', '<Nop>')
 vim.keymap.set('n', 'gg', '<Cmd>silent! execute "!open " . shellescape(expand("<cfile>"))<CR>', { desc = 'Open link under cursor' })
+
+-- Opposite of J (just break the line at cursor)
+-- TODO: compare with mini.splitjoin
+vim.keymap.set('n', 'S', 'i<CR><Esc>', { desc = 'Split line at cursor' })

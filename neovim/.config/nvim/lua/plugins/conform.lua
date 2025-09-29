@@ -11,6 +11,7 @@ return {
       cpp = { 'clang-format' },
       typst = { 'typstyle' },
       json = { 'jq' },
+      zig = { 'zigfmt' },
     },
     formatters = {
       ['clang-format'] = {
