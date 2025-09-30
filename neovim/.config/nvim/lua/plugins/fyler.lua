@@ -6,11 +6,11 @@ return {
     mappings = {
       -- can also use <ZZ/ZQ>
       q = 'CloseView',
-      l = 'Select',
-      h = 'CollapseNode',
+      ['<C-l>'] = 'Select',
+      ['<C-h>'] = 'CollapseNode',
       ['<C-t>'] = 'SelectTab',
       ['<C-v>'] = 'SelectVSplit',
-      ['<C-h>'] = 'GotoParent',
+      ['<C-p>'] = 'GotoParent',
     },
   },
   keys = {
