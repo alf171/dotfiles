@@ -51,3 +51,8 @@ vim.keymap.set('n', 'gg', '<Cmd>silent! execute "!open " . shellescape(expand("<
 -- Opposite of J (just break the line at cursor)
 -- TODO: compare with mini.splitjoin
 vim.keymap.set('n', 'S', 'i<CR><Esc>', { desc = 'Split line at cursor' })
+
+-- delete buffer
+vim.keymap.set('n', '<leader>db', function()
+  require('mini.bufremove').delete(0, false)
+end, { desc = 'Delete buffer' })

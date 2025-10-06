@@ -42,29 +42,29 @@ return {
     }
 
     -- animate cursor movement
-    local animate = require 'mini.animate'
-    animate.setup {
-      cursor = {
-        enabled = true,
-        timing = animate.gen_timing.linear { duration = 200, unit = 'total' },
-      },
-      scroll = {
-        enabled = true,
-        timing = animate.gen_timing.linear { duration = 200, unit = 'total' },
-      },
-      resize = {
-        enabled = true,
-        timing = animate.gen_timing.linear { duration = 200, unit = 'total' },
-      },
-      open = {
-        enabled = true,
-        timing = animate.gen_timing.linear { duration = 200, unit = 'total' },
-      },
-      closed = {
-        enabled = true,
-        timing = animate.gen_timing.linear { duration = 200, unit = 'total' },
-      },
-    }
+    -- local animate = require 'mini.animate'
+    -- animate.setup {
+    --   cursor = {
+    --     enabled = true,
+    --     timing = animate.gen_timing.linear { duration = 200, unit = 'total' },
+    --   },
+    --   scroll = {
+    --     enabled = true,
+    --     timing = animate.gen_timing.linear { duration = 200, unit = 'total' },
+    --   },
+    --   resize = {
+    --     enabled = true,
+    --     timing = animate.gen_timing.linear { duration = 200, unit = 'total' },
+    --   },
+    --   open = {
+    --     enabled = true,
+    --     timing = animate.gen_timing.linear { duration = 200, unit = 'total' },
+    --   },
+    --   closed = {
+    --     enabled = true,
+    --     timing = animate.gen_timing.linear { duration = 200, unit = 'total' },
+    --   },
+    -- }
 
     -- improved status bar
     require('mini.statusline').setup {}

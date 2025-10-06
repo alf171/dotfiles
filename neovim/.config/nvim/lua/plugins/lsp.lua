@@ -131,6 +131,7 @@ return {
       zls = {
         settings = {
           zls = {
+            single_file_support = false,
             enable_build_on_save = true,
             build_on_save_step = 'run',
           },

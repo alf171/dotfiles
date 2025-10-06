@@ -10,7 +10,7 @@ return {
       ['<C-h>'] = 'CollapseNode',
       ['<C-t>'] = 'SelectTab',
       ['<C-v>'] = 'SelectVSplit',
-      ['<C-p>'] = 'GotoParent',
+      ['<C-h>'] = 'GotoParent',
     },
   },
   keys = {

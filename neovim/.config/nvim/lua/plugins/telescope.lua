@@ -39,12 +39,47 @@ return {
     }
 
     pcall(require('telescope').load_extension, 'fzf')
+    local make_entry = require 'telescope.make_entry'
+    local entry_display = require 'telescope.pickers.entry_display'
+    local function basename_entry_maker()
+      local gen = make_entry.gen_from_file {}
+      local displayer = entry_display.create {
+        separator = '  ',
+        items = {
+          { remaining = true },
+          { remaining = true, hl_group = 'Comment' },
+        },
+      }
+
+      return function(line)
+        local e = gen(line)
+        local tail = vim.fn.fnamemodify(e.value, ':t')
+        e.ordinal = tail
+        e.display = function()
+          return displayer {
+            { tail, 'TelescopeResultsIdentifier' },
+          }
+        end
+
+        return e
+      end
+    end
     pcall(require('telescope').load_extension, 'ui-select')
 
     local builtin = require 'telescope.builtin'
+    local fzf_ext = require('telescope').extensions.fzf
+
     vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
     vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
     vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+    vim.keymap.set('n', '<leader>f', function()
+      builtin.find_files {
+        find_command = { 'fd', '--type', 'f', '--hidden' },
+        sorter = fzf_ext.native_fzf_sorter(),
+        entry_maker = basename_entry_maker(),
+        path_display = { 'tail' },
+      }
+    end, { desc = '[S]earch [F]iles (FZF sorter, files only)' })
     vim.keymap.set('n', '<leader>sc', function()
       builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
         winblend = 10,
