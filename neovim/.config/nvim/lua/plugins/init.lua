@@ -4,6 +4,7 @@ return {
   { import = 'plugins.blink' },
   { import = 'plugins.tree-sitter' },
   -- { import = 'plugins.neo-tree' },
+  { import = 'plugins.gitsigns' },
   { import = 'plugins.telescope' },
   { import = 'plugins.theme' },
   { import = 'plugins.wakatime' },
@@ -19,13 +20,12 @@ return {
   { import = 'plugins.fugitive' },
   { import = 'plugins.autopairs' },
   { import = 'plugins.indent_line' },
-  { import = 'plugins.gitsigns' },
   { import = 'plugins.conform' },
   { import = 'plugins.bufferline' },
   { import = 'plugins.lang.typst-preview' },
   'folke/todo-comments.nvim',
-  -- TODO: foobar
 
   -- experimental
   { import = 'plugins.fyler' },
+  { import = 'plugins.undo-tree' },
 }
