@@ -5,12 +5,21 @@ return {
   opts = {
     mappings = {
       -- can also use <ZZ/ZQ>
-      q = 'CloseView',
+      ['q'] = 'CloseView',
+      ['<CR>'] = 'Select',
+      -- move in current view
       ['<C-l>'] = 'Select',
       ['<C-h>'] = 'CollapseNode',
+      -- shift view
+      ['<C-p>'] = 'GotoParent',
+      ['<C-n>'] = 'GotoNode',
+      -- open things
       ['<C-t>'] = 'SelectTab',
       ['<C-v>'] = 'SelectVSplit',
-      ['<C-h>'] = 'GotoParent',
+      -- misc
+      -- [''] = 'SelectSplit',
+      -- ['='] = 'GotoCwd',
+      -- ['!'] = 'CollapseAll',
     },
   },
   keys = {
