@@ -28,4 +28,5 @@ return {
   -- experimental
   { import = 'plugins.fyler' },
   { import = 'plugins.undo-tree' },
+  { import = 'plugins.marks' },
 }
