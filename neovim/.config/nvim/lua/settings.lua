@@ -29,7 +29,7 @@ vim.o.smartcase = true
 vim.o.inccommand = 'split'
 
 -- UI
-vim.o.signcolumn = 'yes'
+vim.o.signcolumn = 'yes:2'
 vim.o.cursorline = true
 vim.o.scrolloff = 5
 vim.o.confirm = true -- ask to save on quit instead of erroring

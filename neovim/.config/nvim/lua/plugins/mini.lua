@@ -5,10 +5,15 @@ return {
     -- q for quotes
     -- a for argument
     -- f for function call
+    -- F for function def
     -- cilq / cinq for next and prev (helps for repeat)
-    require('mini.ai').setup {
+    local ai = require 'mini.ai'
+    ai.setup {
       n_lines = 500,
-      custom_textobjects = nil,
+      custom_textobjects = {
+        -- B = MiniExtra.gen_ai_spec.buffer(),
+        F = ai.gen_spec.treesitter { a = '@function.outer', i = '@function.inner' },
+      },
     }
 
     -- ysiwf<function name>
