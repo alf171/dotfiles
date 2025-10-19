@@ -10,11 +10,26 @@ source ~/.zsh_functions
 setopt promptpercent
 setopt prompt_subst
 bindkey -v
+export KEYTIMEOUT=1
 typeset -g MODE_PROMPT="%F{blue}[I]%f "
 zle -N zle-line-init _zle_update_mode
 zle -N zle-keymap-select _zle_update_mode
 PROMPT='${MODE_PROMPT}%F{red}%n%f@%F{blue}%m%f %F{yellow}%~%f %# '
 unset RPS1 RPS2
+
+# nvim editing in CLI hitting n
+export EDITOR='nvim'
+autoload edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd n edit-command-line
+
+# yank to system clipboard -- only works for mac
+function vi-yank-clipboard {
+    zle vi-yank
+    echo "$CUTBUFFER" | pbcopy -i
+}
+zle -N vi-yank-clipboard
+bindkey -M vicmd 'y' vi-yank-clipboard
 
 # Created by `pipx` on 2025-03-01 19:07:01
 export PATH="$PATH:/Users/alaffont/.local/bin"

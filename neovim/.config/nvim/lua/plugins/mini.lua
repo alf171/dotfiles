@@ -27,8 +27,8 @@ return {
         find_left = '',
         highlight = '',
         update_n_lines = '',
-        suffix_last = '',
-        suffix_next = '',
+        suffix_last = 'l',
+        suffix_next = 'n',
       },
       search_method = 'cover_or_next',
       n_lines = 200,
@@ -45,31 +45,6 @@ return {
       sort = { prefix = '' },
       mappings = {},
     }
-
-    -- animate cursor movement
-    -- local animate = require 'mini.animate'
-    -- animate.setup {
-    --   cursor = {
-    --     enabled = true,
-    --     timing = animate.gen_timing.linear { duration = 200, unit = 'total' },
-    --   },
-    --   scroll = {
-    --     enabled = true,
-    --     timing = animate.gen_timing.linear { duration = 200, unit = 'total' },
-    --   },
-    --   resize = {
-    --     enabled = true,
-    --     timing = animate.gen_timing.linear { duration = 200, unit = 'total' },
-    --   },
-    --   open = {
-    --     enabled = true,
-    --     timing = animate.gen_timing.linear { duration = 200, unit = 'total' },
-    --   },
-    --   closed = {
-    --     enabled = true,
-    --     timing = animate.gen_timing.linear { duration = 200, unit = 'total' },
-    --   },
-    -- }
 
     -- improved status bar
     require('mini.statusline').setup {}
