@@ -25,8 +25,8 @@ bindkey -M vicmd n edit-command-line
 
 # yank to system clipboard -- only works for mac
 function vi-yank-clipboard {
-    zle vi-yank
-    echo "$CUTBUFFER" | pbcopy -i
+  zle vi-yank
+  echo "$CUTBUFFER" | pbcopy -i
 }
 zle -N vi-yank-clipboard
 bindkey -M vicmd 'y' vi-yank-clipboard
@@ -37,8 +37,8 @@ export PATH="$PATH:/Users/alaffont/.local/bin"
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS="
-  --bind=ctrl-j:down
-  --bind=ctrl-k:up
+--bind=ctrl-j:down
+--bind=ctrl-k:up
 "
 
 # nvim
