@@ -13,6 +13,7 @@ return {
       custom_textobjects = {
         -- B = MiniExtra.gen_ai_spec.buffer(),
         F = ai.gen_spec.treesitter { a = '@function.outer', i = '@function.inner' },
+        c = ai.gen_spec.treesitter { a = '@class.outer', i = '@class.inner' },
       },
     }
 
