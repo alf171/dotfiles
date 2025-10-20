@@ -61,3 +61,9 @@ end, { desc = 'Delete buffer' })
 -- remap command mode to ;
 -- map({ 'n', 'v', 'x' }, ';', ':', { desc = 'Self explanatory' })
 -- map({ 'n', 'v', 'x' }, ':', ';', { desc = 'Self explanatory' })
+
+-- page movement auto center
+map('n', '<C-d>', '<C-d>zz')
+map('n', '<C-u>', '<C-u>zz')
+-- map('n', '<C-f>', '<C-f>zz')
+-- map('n', '<C-b>', '<C-b>zz')
