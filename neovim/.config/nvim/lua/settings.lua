@@ -43,8 +43,7 @@ vim.o.splitright = true
 vim.o.splitbelow = true
 
 -- Whitespace display
-vim.o.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.list = false
 
 -- File handling
 vim.opt.autoread = true
