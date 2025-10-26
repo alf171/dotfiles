@@ -1,32 +1,34 @@
 return {
   -- core
-  { import = 'plugins.lsp' },
-  { import = 'plugins.blink' },
-  { import = 'plugins.tree-sitter' },
-  -- { import = 'plugins.neo-tree' },
-  { import = 'plugins.gitsigns' },
-  { import = 'plugins.telescope' },
-  { import = 'plugins.theme' },
-  { import = 'plugins.wakatime' },
+  { import = 'plugins.core.lsp' },
+  { import = 'plugins.core.blink' },
+  { import = 'plugins.core.tree-sitter' },
+  { import = 'plugins.core.gitsigns' },
+  { import = 'plugins.core.telescope' },
+  { import = 'plugins.core.theme' },
+  { import = 'plugins.core.fyler' },
 
   -- motions
-  { import = 'plugins.mini' },
-  { import = 'plugins.flash' },
+  { import = 'plugins.motions.mini' },
+  { import = 'plugins.motions.flash' },
 
   -- misc
-  { import = 'plugins.tmux' },
+  { import = 'plugins.misc.tmux' },
+  { import = 'plugins.misc.wakatime' },
+  { import = 'plugins.misc.todo-comments' },
 
   -- fancy
-  { import = 'plugins.fugitive' },
-  { import = 'plugins.autopairs' },
-  { import = 'plugins.indent_line' },
-  { import = 'plugins.conform' },
-  { import = 'plugins.bufferline' },
+  { import = 'plugins.fancy.fugitive' },
+  { import = 'plugins.fancy.autopairs' },
+  { import = 'plugins.fancy.indent_line' },
+  { import = 'plugins.fancy.conform' },
   { import = 'plugins.lang.typst-preview' },
-  'folke/todo-comments.nvim',
 
   -- experimental
-  { import = 'plugins.fyler' },
-  { import = 'plugins.undo-tree' },
-  { import = 'plugins.marks' },
+  { import = 'plugins.experimental.undo-tree' },
+  { import = 'plugins.experimental.marks' },
+  { import = 'plugins.experimental.bufferline' },
+
+  -- handmade
+  { import = 'plugins.handmade.quill' },
 }

@@ -31,6 +31,13 @@ return {
       desc = 'Open Fyler',
     },
     {
+      '<leader>l',
+      function()
+        require('fyler').open { kind = 'split_right' }
+      end,
+      desc = 'Open Fyler',
+    },
+    {
       '<leader>c',
       function()
         require('fyler').open { kind = 'float', dir = vim.fn.expand '%:p:h' }
