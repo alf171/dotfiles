@@ -122,7 +122,17 @@ return {
       clangd = {
         cmd = { mason_bin, '--background-index', '--enable-config' },
       },
-      lua_ls = {},
+      lua_ls = {
+        settings = {
+          Lua = {
+            runtime = { version = 'LuaJIT' },
+            workspace = { checkThirdParty = false },
+            diagnostics = { globals = { 'vim' } },
+            hint = { enable = true },
+            semantic = { enable = true },
+          },
+        },
+      },
       ts_ls = {},
       marksman = {},
       tinymist = {},
