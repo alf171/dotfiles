@@ -4,34 +4,55 @@ return {
   main = 'nvim-treesitter.configs',
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
+    'nvim-treesitter/nvim-treesitter-context',
   },
-  opts = {
-    ensure_installed = {
-      'bash',
-      'c',
-      'cpp',
-      'diff',
-      'html',
-      'lua',
-      'luadoc',
-      'markdown',
-      'markdown_inline',
-      'query',
-      'vim',
-      'vimdoc',
-      'typst',
-      'json',
-      'zig',
-      'python',
-    },
-    auto_install = true,
-    highlight = {
+  config = function()
+    -- Treesitter core
+    require('nvim-treesitter.configs').setup {
+      ensure_installed = {
+        'bash',
+        'c',
+        'cpp',
+        'diff',
+        'html',
+        'lua',
+        'luadoc',
+        'markdown',
+        'markdown_inline',
+        'query',
+        'vim',
+        'vimdoc',
+        'typst',
+        'json',
+        'zig',
+        'python',
+      },
+      sync_install = false,
+      auto_install = true,
+      ignore_install = {},
+      modules = {},
+      highlight = { enable = true },
+      indent = { enable = true },
+      textobjects = { enable = true },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = false,
+          node_incremental = 'an',
+          node_decremental = 'in',
+        },
+      },
+    }
+
+    -- Treesitter context
+    -- TODO: consider adding keymaps
+    require('treesitter-context').setup {
       enable = true,
-      additional_vim_regex_highlighting = {},
-    },
-    indent = { enable = true, disable = {} },
-    textobjects = { enable = true },
-  },
-  -- Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-  -- Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
+      max_lines = 3,
+      line_numbers = true,
+      trim_scope = 'outer',
+      mode = 'cursor',
+      zindex = 20,
+    }
+  end,
 }
