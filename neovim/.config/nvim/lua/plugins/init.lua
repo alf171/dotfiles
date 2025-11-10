@@ -16,6 +16,7 @@ return {
   { import = 'plugins.misc.tmux' },
   { import = 'plugins.misc.wakatime' },
   { import = 'plugins.misc.todo-comments' },
+  { import = 'plugins.misc.fileline' },
 
   -- fancy
   { import = 'plugins.fancy.fugitive' },
