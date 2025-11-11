@@ -3,23 +3,30 @@ return {
   branch = 'stable',
   dependencies = { 'echasnovski/mini.icons' },
   opts = {
-    mappings = {
-      -- can also use <ZZ/ZQ>
-      ['q'] = 'CloseView',
-      ['<CR>'] = 'Select',
-      -- move in current view
-      ['<C-l>'] = 'Select',
-      ['<C-h>'] = 'CollapseNode',
-      -- shift view
-      ['<C-p>'] = 'GotoParent',
-      ['<C-n>'] = 'GotoNode',
-      -- open things
-      ['<C-t>'] = 'SelectTab',
-      ['<C-v>'] = 'SelectVSplit',
-      -- misc
-      -- [''] = 'SelectSplit',
-      -- ['='] = 'GotoCwd',
-      -- ['!'] = 'CollapseAll',
+    views = {
+      finder = {
+        mappings = {
+          -- can also use <ZZ/ZQ>
+          ['q'] = 'CloseView',
+          ['<CR>'] = 'Select',
+          -- move in current view
+          ['<C-l>'] = 'Select',
+          ['<C-h>'] = 'CollapseNode',
+          -- shift view
+          ['<C-p>'] = 'GotoParent',
+          ['<C-n>'] = 'GotoNode',
+          -- open things
+          ['<C-t>'] = 'SelectTab',
+          ['<C-v>'] = 'SelectVSplit',
+          -- misc
+          -- [''] = 'SelectSplit',
+          -- ['='] = 'GotoCwd',
+          -- ['!'] = 'CollapseAll',
+        },
+        win_opts = {
+          relativenumbers = false,
+        },
+      },
     },
   },
   keys = {
@@ -44,8 +51,5 @@ return {
       end,
       desc = 'Open Fyler in current dir',
     },
-  },
-  win_opts = {
-    relativenumbers = false,
   },
 }
