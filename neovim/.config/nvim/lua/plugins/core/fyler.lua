@@ -1,6 +1,7 @@
 return {
   'A7Lavinraj/fyler.nvim',
-  branch = 'stable',
+  -- NOTE: using nightly build
+  -- branch = 'stable',
   dependencies = { 'echasnovski/mini.icons' },
   opts = {
     views = {
