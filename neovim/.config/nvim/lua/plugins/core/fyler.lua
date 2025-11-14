@@ -27,6 +27,9 @@ return {
         win_opts = {
           relativenumbers = false,
         },
+        win = {
+          border = 'rounded',
+        },
       },
     },
   },

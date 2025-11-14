@@ -6,7 +6,7 @@ vim.g.have_nerd_font = true
 -- Line numbers
 vim.o.number = true
 
--- Don’t show mode (since statusline already has it)
+-- Status line already contains mode
 vim.o.showmode = false
 
 -- Clipboard: share with system
@@ -32,7 +32,7 @@ vim.o.inccommand = 'split'
 vim.o.signcolumn = 'yes:2'
 vim.o.cursorline = true
 vim.o.scrolloff = 5
-vim.o.confirm = true -- ask to save on quit instead of erroring
+vim.o.confirm = true
 
 -- Performance
 vim.o.updatetime = 250
@@ -54,5 +54,6 @@ vim.opt.swapfile = false
 -- vim.opt.spelllang = { 'en_us' }
 
 -- tree sitter folding
--- vim.opt.foldmethod = 'expr'
--- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldmethod = 'expr'
+vim.opt.foldlevel = 99
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
