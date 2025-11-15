@@ -69,3 +69,8 @@ map('n', '<C-u>', '<C-u>zz')
 -- map('n', '<C-b>', '<C-b>zz')
 
 map('n', '<leader><leader>r', '<cmd>source %<CR>')
+
+-- similar to K but in insert mode
+map('i', '<C-a>', function()
+  vim.lsp.buf.signature_help()
+end, { silent = true, noremap = true, desc = 'Show signature help' })
