@@ -6,7 +6,9 @@ return {
   { import = 'plugins.core.gitsigns' },
   { import = 'plugins.core.telescope' },
   { import = 'plugins.core.theme' },
+  -- TODO: replace with oil
   { import = 'plugins.core.fyler' },
+  { import = 'plugins.core.oil' },
 
   -- motions
   { import = 'plugins.motions.mini' },
