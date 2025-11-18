@@ -4,7 +4,9 @@ return {
   { import = 'plugins.core.blink' },
   { import = 'plugins.core.tree-sitter' },
   { import = 'plugins.core.gitsigns' },
-  { import = 'plugins.core.telescope' },
+  -- { import = 'plugins.core.telescope' },
+  -- TODO: trying telescope replacement
+  { import = 'plugins.core.fzf' },
   { import = 'plugins.core.theme' },
   -- TODO: replace with oil
   { import = 'plugins.core.fyler' },

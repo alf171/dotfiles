@@ -1,6 +1,8 @@
 return {
   'stevearc/oil.nvim',
-  dependencies = { { 'nvim-mini/mini.icons', opts = {} } },
+  dependencies = {
+    { 'nvim-mini/mini.icons', opts = {} },
+  },
   lazy = false,
   opts = {
     win_options = {
