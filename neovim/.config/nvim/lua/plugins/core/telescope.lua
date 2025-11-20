@@ -78,6 +78,7 @@ return {
         sorter = fzf_ext.native_fzf_sorter(),
         entry_maker = basename_entry_maker(),
         path_display = { 'tail' },
+        previewer = false,
       }
     end, { desc = '[S]earch [F]iles (FZF sorter, files only)' })
     vim.keymap.set('n', '<leader>sc', function()
