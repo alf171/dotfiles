@@ -5,6 +5,12 @@ return {
     local fzf = require 'fzf-lua'
     local km = vim.keymap
 
+    km.set('n', '<leader>f', function()
+      fzf.files {
+        previewer = false,
+      }
+    end, { desc = '' })
+
     km.set('n', '<leader>sf', function()
       fzf.files()
     end, { desc = '' })
