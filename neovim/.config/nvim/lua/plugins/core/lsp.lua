@@ -33,17 +33,14 @@ return {
           vim.lsp.buf.definition { reuse_win = true }
         end, '[G]oto [D]efinition')
 
-        -- telescope go to def
-        map('g<C-d>', require('telescope.builtin').lsp_definitions, 'Telescope [G]oto [D]efinition')
-
         -- Find references for the word under your cursor.
-        map('gu', require('telescope.builtin').lsp_references, '[G]oto [U]sages')
+        map('gu', vim.lsp.buf.references, '[G]oto [U]sages')
 
         -- Jump to the implementation of the word under your cursor.
-        map('gi', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+        map('gi', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
 
         -- Jump to the type of the word under your cursor.
-        map('gt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
+        map('gt', vim.lsp.buf.type_definition, '[G]oto [T]ype Definition')
 
         local function client_supports_method(client, method, bufnr)
           if vim.fn.has 'nvim-0.11' == 1 then
