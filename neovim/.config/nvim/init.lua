@@ -3,6 +3,7 @@ vim.g.maplocalleader = ' '
 
 require 'settings'
 require 'keymaps'
+require 'qf'
 require 'autocmds'
 
 -- bootstrap lazy.nvim here

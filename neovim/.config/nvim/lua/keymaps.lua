@@ -11,10 +11,6 @@ map('n', ']d', function()
 end, { desc = 'Next Diagnostic' })
 map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Diagnostic quickfix' })
 
--- Quick fix list
-map('n', '<C-n>', '<cmd>cnext<CR>', { desc = 'Quickfix next' })
-map('n', '<C-p>', '<cmd>cprev<CR>', { desc = 'Quickfix prev' })
-
 -- Escape clears search
 map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 

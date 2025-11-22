@@ -1,7 +1,9 @@
+local custom_group = vim.api.nvim_create_augroup('custom_autocmds', { clear = true })
+
 -- Highlight on yank
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
+  group = custom_group,
   callback = function()
     vim.hl.on_yank()
   end,
@@ -9,6 +11,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- Tmux specific stuff
 vim.api.nvim_create_autocmd('BufEnter', {
+  group = custom_group,
   callback = function()
     local base = vim.fn.expand '%:t'
     if base ~= '' then
@@ -21,6 +24,7 @@ vim.api.nvim_create_autocmd('BufEnter', {
 
 -- auto format all buffers on save
 vim.api.nvim_create_autocmd('BufWritePre', {
+  group = custom_group,
   callback = function(args)
     require('conform').format { bufnr = args.buf, lsp_format = 'fallback' }
   end,
