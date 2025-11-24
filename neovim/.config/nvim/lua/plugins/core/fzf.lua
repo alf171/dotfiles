@@ -22,5 +22,12 @@ return {
     km.set('n', '<leader>o', function()
       fzf.buffers()
     end, { desc = '' })
+
+    km.set('n', '<leader>ca', function()
+      fzf.lsp_code_actions({
+        previewer = false,
+      })
+    end, { desc = 'suggest a code action'})
+
   end,
 }
