@@ -24,10 +24,10 @@ return {
     end, { desc = '' })
 
     km.set('n', '<leader>ca', function()
-      fzf.lsp_code_actions({
+      fzf.lsp_code_actions {
         previewer = false,
-      })
-    end, { desc = 'suggest a code action'})
-
+        silent = true,
+      }
+    end, { desc = 'suggest a code action' })
   end,
 }
