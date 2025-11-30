@@ -7,25 +7,27 @@ return {
 
     km.set('n', '<leader>f', function()
       fzf.files {
-        previewer = false,
+        previewer = { enabled = false },
       }
-    end, { desc = '' })
+    end, { desc = 'search for file with exact name' })
 
     km.set('n', '<leader>sf', function()
       fzf.files()
-    end, { desc = '' })
+    end, { desc = 'fuzzy search for files with preview' })
 
     km.set('n', '<leader>sg', function()
       fzf.live_grep()
-    end, { desc = '' })
+    end, { desc = 'grep for contents of a file' })
 
     km.set('n', '<leader>o', function()
-      fzf.buffers()
-    end, { desc = '' })
+      fzf.buffers {
+        previewer = { enabled = false },
+      }
+    end, { desc = 'list open buffers' })
 
     km.set('n', '<leader>ca', function()
       fzf.lsp_code_actions {
-        previewer = false,
+        previewer = { enabled = false },
         silent = true,
       }
     end, { desc = 'suggest a code action' })
