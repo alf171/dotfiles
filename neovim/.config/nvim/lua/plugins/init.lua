@@ -8,8 +8,6 @@ return {
   -- TODO: trying telescope replacement
   { import = 'plugins.core.fzf' },
   { import = 'plugins.core.theme' },
-  -- TODO: replace with oil
-  { import = 'plugins.core.fyler' },
   { import = 'plugins.core.oil' },
 
   -- motions

@@ -5,8 +5,10 @@ return {
   },
   lazy = false,
   opts = {
-    win_options = {
-      winbar = "%{v:lua.require'oil'.get_current_dir()}",
+    float = {
+      max_width = 0.75,
+      max_height = 0.75,
+      border = 'rounded',
     },
     keymaps = {
       ['g?'] = { 'actions.show_help', mode = 'n' },
@@ -17,7 +19,8 @@ return {
       -- ['<C-s>'] = { 'actions.select', opts = { vertical = true } },
       -- ['<C-h>'] = { 'actions.select', opts = { horizontal = true } },
       ['<C-v>'] = 'actions.preview',
-      ['<C-c>'] = { 'actions.close', mode = 'n' },
+      ['q'] = { 'actions.close', mode = 'n' },
+      ['<C-l>'] = false,
       ['<C-r>'] = 'actions.refresh',
       -- ['_'] = { 'actions.open_cwd', mode = 'n' },
       -- ['`'] = { 'actions.cd', mode = 'n' },
@@ -28,4 +31,15 @@ return {
       -- ['g\\'] = { 'actions.toggle_trash', mode = 'n' },
     },
   },
+  keys = function()
+    local km = vim.keymap
+
+    km.set('n', '<leader>e', function()
+      require('oil').open_float(vim.fn.getcwd())
+    end, { desc = 'open oil in project dir' })
+
+    km.set('n', '<leader>c', function()
+      require('oil').open_float()
+    end, { desc = 'open oil in current dir' })
+  end,
 }
