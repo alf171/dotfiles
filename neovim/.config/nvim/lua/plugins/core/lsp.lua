@@ -25,9 +25,6 @@ return {
           vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
         end
 
-        -- suggest a code action
-        map('<leader>ca', vim.lsp.buf.code_action, 'Run [C]ode [A]ction', { 'n', 'x' })
-
         -- LSP go to def
         map('gd', function()
           vim.lsp.buf.definition { reuse_win = true }
