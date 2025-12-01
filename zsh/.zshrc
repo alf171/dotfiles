@@ -14,7 +14,7 @@ export KEYTIMEOUT=1
 typeset -g MODE_PROMPT="%F{blue}[I]%f "
 zle -N zle-line-init _zle_update_mode
 zle -N zle-keymap-select _zle_update_mode
-PROMPT='${MODE_PROMPT}%F{red}%n%f@%F{blue}%m%f %F{yellow}%~%f %# '
+PROMPT='${MODE_PROMPT}%F{yellow}%~%f %# '
 unset RPS1 RPS2
 
 # nvim editing in CLI hitting n
