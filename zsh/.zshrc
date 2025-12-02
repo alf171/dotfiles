@@ -72,6 +72,7 @@ alias gr="git restore"
 alias grs="git restore --staged"
 alias gst="git stash"
 alias gstp="git stash pop"
+alias gstl="git stash list"
 
 # ignore <C-d>
 setopt IGNORE_EOF
