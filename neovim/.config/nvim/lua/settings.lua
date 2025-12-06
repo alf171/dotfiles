@@ -14,6 +14,9 @@ vim.schedule(function()
   vim.o.clipboard = 'unnamedplus'
 end)
 
+-- Include <,> in match pairs
+vim.opt.matchpairs:append '<:>'
+
 -- Indentation
 vim.o.breakindent = true
 vim.opt.expandtab = true
