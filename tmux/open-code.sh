@@ -15,6 +15,9 @@ else
   repo=$(basename -s .git "$url")
   repo=${repo:-$(basename "$PWD")}
   custom_url="https://code.amazon.com/packages/${repo}/trees/mainline"
+  # This done not work over ssh. For that try:
+  # ssh -M -S ~/.ssh/tmux-socket remote-host
+  # ssh -S ~/.ssh/tmux-socket -O forward localhost "open '$clean_url'"
   open "$custom_url"
 fi
 
