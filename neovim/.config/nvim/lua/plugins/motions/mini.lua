@@ -6,6 +6,7 @@ return {
     -- a for argument
     -- f for function call
     -- F for function def
+    -- c for class def
     -- cilq / cinq for next and prev (helps for repeat)
     local ai = require 'mini.ai'
     ai.setup {

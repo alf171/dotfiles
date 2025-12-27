@@ -4,11 +4,10 @@ return {
   { import = 'plugins.core.blink' },
   { import = 'plugins.core.tree-sitter' },
   { import = 'plugins.core.gitsigns' },
-  -- { import = 'plugins.core.telescope' },
-  -- TODO: trying telescope replacement
   { import = 'plugins.core.fzf' },
   { import = 'plugins.core.theme' },
   { import = 'plugins.core.oil' },
+  { import = 'plugins.core.mini_tabline' },
 
   -- motions
   { import = 'plugins.motions.mini' },
@@ -30,7 +29,6 @@ return {
   -- experimental
   { import = 'plugins.experimental.undo-tree' },
   { import = 'plugins.experimental.marks' },
-  { import = 'plugins.experimental.bufferline' },
 
   -- handmade
   { import = 'plugins.handmade.quill' },
