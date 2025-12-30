@@ -7,7 +7,7 @@ return {
   { import = 'plugins.core.fzf' },
   { import = 'plugins.core.theme' },
   { import = 'plugins.core.oil' },
-  { import = 'plugins.core.mini_tabline' },
+  { import = 'plugins.core.mini-tabline' },
 
   -- motions
   { import = 'plugins.motions.mini' },

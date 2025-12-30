@@ -44,14 +44,13 @@ map('n', 'X', 'cc<Esc>')
 
 -- Disable S in visual mode
 map('x', 'S', '<Nop>', { silent = true })
+-- TODO: compare with mini.splitjoin
+-- Opposite of J (just break the line at cursor)
+map('n', 'S', 'cl<CR><Esc>', { desc = 'Split line at cursor' })
 
 -- Remap gx since it conflicts with mini operators -- use gg instead (go does same thing)
 map('n', 'gg', '<Nop>')
 map('n', 'gg', '<Cmd>silent! execute "!open " . shellescape(expand("<cfile>"))<CR>', { desc = 'Open link under cursor' })
-
--- Opposite of J (just break the line at cursor)
--- TODO: compare with mini.splitjoin
-map('n', 'S', 'i<CR><Esc>', { desc = 'Split line at cursor' })
 
 -- delete buffer
 map('n', '<leader>db', function()
