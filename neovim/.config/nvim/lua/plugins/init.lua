@@ -8,6 +8,7 @@ return {
   { import = 'plugins.core.theme' },
   { import = 'plugins.core.oil' },
   { import = 'plugins.core.mini-tabline' },
+  { import = 'plugins.core.mini-cmdline' },
 
   -- motions
   { import = 'plugins.motions.mini' },
