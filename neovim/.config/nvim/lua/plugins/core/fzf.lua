@@ -20,6 +20,10 @@ return {
       fzf.live_grep()
     end, { desc = 'grep for contents of a file' })
 
+    map('n', '<leader>s.', function()
+      fzf.resume()
+    end, { desc = 'resume a search' })
+
     map('n', '<leader>o', function()
       fzf.buffers {
         previewer = false,
