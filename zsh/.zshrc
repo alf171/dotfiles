@@ -1,5 +1,18 @@
-# c++ alias
+# set size of history
+export HISTSIZE=1000000000
+export SAVEHIST=$HISTSIZE
+# add timestamp to history
+setopt EXTENDED_HISTORY
+# change dirs with typing cd
+setopt autocd
+# use zsh completion system
+autoload -U compinit; compinit
+
+# c++
 alias g++='g++ -std=c++17'
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
 autoload -U colors && colors
 
@@ -16,6 +29,8 @@ zle -N zle-line-init _zle_update_mode
 zle -N zle-keymap-select _zle_update_mode
 PROMPT='${MODE_PROMPT}%F{yellow}%~%f %# '
 unset RPS1 RPS2
+# Fix for backspace in vi mode
+bindkey -v '^?' backward-delete-char
 
 # nvim editing in CLI hitting n
 export EDITOR='nvim'
