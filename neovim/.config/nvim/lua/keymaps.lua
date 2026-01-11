@@ -46,7 +46,7 @@ map('n', 'X', 'cc<Esc>')
 map('x', 'S', '<Nop>', { silent = true })
 -- TODO: compare with mini.splitjoin
 -- Opposite of J (just break the line at cursor)
-map('n', 'S', 'cl<CR><Esc>', { desc = 'Split line at cursor' })
+map('n', 'S', '"_cl<CR><Esc>', { desc = 'Split line at cursor' })
 
 -- Remap gx since it conflicts with mini operators -- use gg instead (go does same thing)
 map('n', 'gg', '<Nop>')
