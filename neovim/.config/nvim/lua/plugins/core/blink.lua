@@ -22,7 +22,7 @@ return {
     appearance = { nerd_font_variant = 'mono' },
 
     completion = { documentation = { auto_show = false } },
-    signature = { enabled = true },
+    signature = { enabled = true, trigger = { enabled = false } },
 
     sources = {
       default = { 'lsp', 'path', 'snippets', 'lazydev' },
@@ -79,10 +79,11 @@ return {
     map('i', '<cr>', expr(blink.accept, '<cr>'), { expr = true })
     map('i', '<c-y>', expr(blink.accept, '<c-y>'), { expr = true })
 
+    -- scroll between blink auto complete w.r.t autocomplete
     map('i', '<C-j>', expr(blink.select_next, '<C-j>', '<C-n>'), { expr = true })
     map('i', '<C-k>', expr(blink.select_prev, '<C-k>', '<C-p>'), { expr = true })
 
-    map('i', '<c-n>', expr(blink.snippet_forward, '<c-n>'), { expr = true })
-    map('i', '<c-p>', expr(blink.snippet_backward, '<c-p>'), { expr = true })
+    map('i', '<c-n>', blink.snippet_forward, { expr = true })
+    map('i', '<c-p>', blink.snippet_backward, { expr = true })
   end,
 }
