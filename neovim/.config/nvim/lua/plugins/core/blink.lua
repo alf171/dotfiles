@@ -63,15 +63,13 @@ return {
       blink.show()
     end, { nowait = true })
 
-    local sig_vis = false
     -- K but in insert mode
     map('i', '<c-a>', function()
-      if sig_vis then
+      if blink.is_signature_visible() then
         blink.hide_signature()
       else
         blink.show_signature()
       end
-      sig_vis = not sig_vis
     end, { nowait = true, silent = true })
 
     -- accept keys
