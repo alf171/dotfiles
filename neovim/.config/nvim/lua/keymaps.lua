@@ -68,22 +68,3 @@ map('n', '<C-u>', '<C-u>zz')
 -- map('n', '<C-b>', '<C-b>zz')
 
 map('n', '<leader><leader>r', '<cmd>source %<CR>')
-
--- similar to K but in insert mode
-map('i', '<C-a>', function()
-  vim.lsp.buf.signature_help()
-end, { silent = true, noremap = true, desc = 'Show signature help' })
-
--- Control j/k through built in neovim autocomplete
-map('i', '<C-j>', function()
-  if vim.fn.pumvisible() == 1 then
-    return '<C-n>'
-  end
-  return '<C-j>'
-end, { expr = true, silent = true })
-map('i', '<C-k>', function()
-  if vim.fn.pumvisible() == 1 then
-    return '<C-p>'
-  end
-  return '<C-k>'
-end, { expr = true, silent = true })
