@@ -1,6 +1,6 @@
 return {
   -- 'alf171/quill.nvim',
-  dir = '~/Desktop/projects/nvim-plugins/quill.nvim/',
+  dir = '~/projects/nvim-plugins/quill.nvim/',
   config = function()
     require('quill').setup {
       notes_path = '~/Desktop/notes/',

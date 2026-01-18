@@ -17,9 +17,8 @@ cd "$dir" || exit 1
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-selected=$(find ~/dotfiles ~/Desktop/projects ~/Desktop/projects/nvim-plugins \
+selected=$(find ~/dotfiles ~/projects ~/projects/nvim-plugins \
   -mindepth 1 -maxdepth 1 -type d 2>/dev/null |
-  sed "s|^$HOME|~|" |
   fzf --no-height --border --reverse
 ) || exit 0
 fi
