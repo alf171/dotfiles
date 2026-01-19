@@ -36,6 +36,8 @@ return {
       n_lines = 200,
     }
     -- Map S in visual mode to add surround in visual mode
+    -- ga is visual mode also works
+    -- both don't work with . repeat like normal mode version of ga does
     vim.keymap.set('x', 'S', [[:<C-u>lua MiniSurround.add('visual')<CR>]], { desc = 'Add surround (visual)', silent = true, noremap = true })
 
     -- gr/grr for replace
