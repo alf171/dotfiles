@@ -47,7 +47,7 @@ zle -N vi-yank-clipboard
 bindkey -M vicmd 'y' vi-yank-clipboard
 
 # Created by `pipx` on 2025-03-01 19:07:01
-export PATH="$PATH:/Users/alaffont/.local/bin"
+export PATH="/Users/alaffont/.local/bin:$PATH"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
