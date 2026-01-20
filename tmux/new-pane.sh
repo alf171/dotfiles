@@ -4,7 +4,8 @@ set -euo pipefail
 #!usr/bin/env bash
 set -euo pipefail
 
-# Ensure Homebrew binaries (fzf, fd, rg...) are found
+# set path for tools like (fzf, fd, rg...)
+# will only work on mac
 export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 
 # Log everything for debugging
