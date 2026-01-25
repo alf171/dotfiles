@@ -2,6 +2,8 @@ return {
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
   main = 'nvim-treesitter.configs',
+  -- TODO: move to main branch
+  branch = 'master',
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
     'nvim-treesitter/nvim-treesitter-context',
@@ -14,11 +16,8 @@ return {
         'c',
         'cpp',
         'diff',
-        'html',
         'lua',
-        'luadoc',
         'markdown',
-        'markdown_inline',
         'query',
         'vim',
         'vimdoc',
@@ -26,12 +25,16 @@ return {
         'json',
         'zig',
         'python',
+        'tmux',
       },
       sync_install = false,
       auto_install = true,
       ignore_install = {},
       modules = {},
-      highlight = { enable = true },
+      highlight = {
+        enable = true,
+        disable = { 'tmux' },
+      },
       indent = { enable = true },
       textobjects = { enable = true },
       incremental_selection = {
