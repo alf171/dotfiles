@@ -5,7 +5,7 @@ return {
     require('mini.cmdline').setup {
       autocomplete = {
         enable = true,
-        delay = 200,
+        delay = 300,
       },
     }
 

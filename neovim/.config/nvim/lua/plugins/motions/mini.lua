@@ -2,6 +2,7 @@ return {
   'echasnovski/mini.nvim',
   version = false,
   config = function()
+    local map = vim.keymap.set
     -- q for quotes
     -- a for argument
     -- f for function call
@@ -18,7 +19,8 @@ return {
 
     -- ysiwf<function name>
     -- dsf, dsq, csnq/cslq (for repeatable)
-    require('mini.surround').setup {
+    local surround = require 'mini.surround'
+    surround.setup {
       mappings = {
         add = 'ga',
         delete = 'ds',
@@ -36,7 +38,7 @@ return {
     -- Map S in visual mode to add surround in visual mode
     -- ga is visual mode also works
     -- both don't work with . repeat like normal mode version of ga does
-    vim.keymap.set('x', 'S', [[:<C-u>lua MiniSurround.add('visual')<CR>]], { desc = 'Add surround (visual)', silent = true, noremap = true })
+    map('x', 'S', [[:<C-u>lua MiniSurround.add('visual')<CR>]], { silent = true })
 
     -- gr/grr for replace
     -- gm/gmm for multiply
@@ -59,5 +61,13 @@ return {
         join = 'gJ',
       },
     }
+
+    local buf_remove = require 'mini.bufremove'
+    buf_remove.setup {}
+
+    map('n', '<leader>x', function()
+      buf_remove.delete(0, false)
+    end, { silent = true, desc = 'Close tab (maintain windows)' })
+    map('n', '<leader>X', '<cmd>bd<cr>', { silent = true, desc = 'Hard close tab' })
   end,
 }

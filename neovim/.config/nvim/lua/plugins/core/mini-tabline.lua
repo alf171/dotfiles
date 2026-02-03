@@ -7,7 +7,5 @@ return {
       format = nil,
       tabpage_section = 'left',
     }
-    local map = vim.keymap.set
-    map('n', '<leader>x', '<cmd>bd<CR>', { silent = true, desc = 'Close tab (buffer)' })
   end,
 }
