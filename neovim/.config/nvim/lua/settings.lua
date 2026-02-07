@@ -15,7 +15,7 @@ vim.schedule(function()
 end)
 
 -- Include <,> in match pairs
-vim.opt.matchpairs:append '<:>'
+vim.opt.matchpairs:append '<:>,|:|'
 
 -- Indentation
 vim.o.breakindent = true
@@ -60,3 +60,9 @@ vim.opt.swapfile = false
 vim.opt.foldmethod = 'expr'
 vim.opt.foldlevel = 99
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+
+-- use blink for autocmds
+vim.o.omnifunc = ''
+
+-- prefer error > warn > info > hint
+vim.diagnostic.config { severity_sort = true }

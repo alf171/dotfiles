@@ -9,7 +9,9 @@ end, { desc = 'Prev Diagnostic' })
 map('n', ']d', function()
   vim.diagnostic.jump { count = 1, float = true }
 end, { desc = 'Next Diagnostic' })
-map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Diagnostic quickfix' })
+map('n', '<leader>q', function()
+  vim.diagnostic.setloclist { severity = vim.diagnostic.severity.ERROR }
+end, { desc = 'Diagnostic quickfix' })
 
 -- Escape clears search
 map('n', '<Esc>', '<cmd>nohlsearch<CR>')
