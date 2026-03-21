@@ -16,6 +16,17 @@ end, { desc = 'Diagnostic quickfix' })
 -- Escape clears search
 map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+-- Simplify forward and backward searching
+local function search_keys(forward, backwards)
+  return function()
+    return ({ backwards, forward })[vim.v.searchforward + 1]
+  end
+end
+map('n', 'n', search_keys('n', 'N'), { expr = true })
+map('n', 'N', search_keys('N', 'n'), { expr = true })
+map('n', 'p', search_keys('N', 'n'), { expr = true })
+map('n', 'P', search_keys('n', 'N'), { expr = true })
+
 -- Window movement
 map('n', '<C-h>', '<C-w><C-h>', { desc = 'Left window' })
 map('n', '<C-l>', '<C-w><C-l>', { desc = 'Right window' })
