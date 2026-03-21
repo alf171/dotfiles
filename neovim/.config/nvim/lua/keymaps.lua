@@ -3,12 +3,6 @@ local map = vim.keymap.set
 map('n', '<Space>', '<Nop>', { noremap = true, silent = true })
 
 -- Diagnostics
-map('n', '[d', function()
-  vim.diagnostic.jump { count = -1, float = true }
-end, { desc = 'Prev Diagnostic' })
-map('n', ']d', function()
-  vim.diagnostic.jump { count = 1, float = true }
-end, { desc = 'Next Diagnostic' })
 map('n', '<leader>q', function()
   vim.diagnostic.setloclist { severity = vim.diagnostic.severity.ERROR }
 end, { desc = 'Diagnostic quickfix' })
