@@ -66,3 +66,6 @@ vim.o.omnifunc = ''
 
 -- prefer error > warn > info > hint
 vim.diagnostic.config { severity_sort = true }
+
+-- enable ui2
+require('vim._core.ui2').enable {}
