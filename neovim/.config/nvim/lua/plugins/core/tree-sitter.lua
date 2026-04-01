@@ -1,17 +1,33 @@
 return {
   'nvim-treesitter/nvim-treesitter',
+  branch = 'main',
+  lazy = false,
   build = ':TSUpdate',
-  main = 'nvim-treesitter.configs',
-  -- TODO: move to main branch
-  branch = 'master',
   dependencies = {
-    'nvim-treesitter/nvim-treesitter-textobjects',
+    { 'nvim-treesitter/nvim-treesitter-textobjects', branch = 'main' },
     'nvim-treesitter/nvim-treesitter-context',
   },
   config = function()
-    -- Treesitter core
-    require('nvim-treesitter.configs').setup {
-      ensure_installed = {
+    require('nvim-treesitter').setup()
+    require('nvim-treesitter').install {
+      'bash',
+      'c',
+      'cpp',
+      'diff',
+      'lua',
+      'markdown',
+      'query',
+      'vim',
+      'vimdoc',
+      'typst',
+      'json',
+      'zig',
+      'python',
+      'tmux',
+    }
+
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = {
         'bash',
         'c',
         'cpp',
@@ -20,35 +36,39 @@ return {
         'markdown',
         'query',
         'vim',
-        'vimdoc',
+        'help',
         'typst',
         'json',
         'zig',
         'python',
-        'tmux',
       },
-      sync_install = false,
-      auto_install = true,
-      ignore_install = {},
-      modules = {},
-      highlight = {
-        enable = true,
-        disable = { 'tmux' },
+      callback = function(args)
+        if vim.bo[args.buf].filetype ~= 'tmux' then
+          vim.treesitter.start(args.buf)
+        end
+      end,
+    })
+
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = {
+        'bash',
+        'c',
+        'cpp',
+        'lua',
+        'json',
+        'zig',
+        'python',
       },
-      indent = { enable = true },
-      textobjects = { enable = true },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = false,
-          node_incremental = 'an',
-          node_decremental = 'in',
-        },
-      },
+      callback = function(args)
+        vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      end,
+    })
+
+    require('nvim-treesitter-textobjects').setup {
+      -- put actual textobject config here
+      -- your old `textobjects = { enable = true }` is not enough on main
     }
 
-    -- Treesitter context
-    -- TODO: consider adding keymaps
     require('treesitter-context').setup {
       enable = true,
       max_lines = 3,
