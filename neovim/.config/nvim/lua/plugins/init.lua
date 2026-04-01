@@ -10,10 +10,6 @@ return {
   { import = 'plugins.core.mini-tabline' },
   { import = 'plugins.core.mini-cmdline' },
 
-  -- motions
-  { import = 'plugins.motions.mini' },
-  { import = 'plugins.motions.flash' },
-
   -- misc
   { import = 'plugins.misc.tmux' },
   { import = 'plugins.misc.wakatime' },
@@ -32,5 +28,6 @@ return {
   { import = 'plugins.experimental.marks' },
 
   -- handmade
-  { import = 'plugins.handmade.quill' },
+  -- { import = 'plugins.handmade.quill' },
+  { import = 'plugins.handmade.collab' },
 }
