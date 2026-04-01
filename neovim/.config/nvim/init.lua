@@ -21,4 +21,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- load plugin spec table from lua/plugins/init.lua
-require('lazy').setup(require 'plugins')
+require('lazy').setup(require 'plugins', {
+  performance = {
+    reset_packpath = false,
+  },
+})
+
+-- move over to vim.pack
+require('pack_loader').setup(require 'pack_plugins')

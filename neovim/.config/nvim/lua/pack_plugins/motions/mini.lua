@@ -1,7 +1,9 @@
 return {
-  'echasnovski/mini.nvim',
-  version = false,
-  config = function()
+  pack = {
+    src = 'https://github.com/echasnovski/mini.nvim',
+    version = 'main',
+  },
+  setup = function()
     local map = vim.keymap.set
     -- q for quotes
     -- a for argument
