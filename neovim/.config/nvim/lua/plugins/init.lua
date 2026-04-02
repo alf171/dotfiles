@@ -1,7 +1,7 @@
 return {
   -- core
-  { import = 'plugins.core.lsp' },
-  { import = 'plugins.core.blink' },
+  -- { import = 'plugins.core.lsp' },
+  -- { import = 'plugins.core.blink' },
   { import = 'plugins.core.tree-sitter' },
   { import = 'plugins.core.gitsigns' },
   { import = 'plugins.core.fzf' },

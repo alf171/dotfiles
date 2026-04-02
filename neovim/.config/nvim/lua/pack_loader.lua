@@ -9,7 +9,11 @@ function M.setup(plugin_modules)
     plugins[#plugins + 1] = plugin
 
     if plugin.pack then
-      pack_spec[#pack_spec + 1] = plugin.pack
+      if plugin.pack.src then
+        pack_spec[#pack_spec + 1] = plugin.pack
+      else
+        vim.list_extend(pack_spec, plugin.pack)
+      end
     end
   end
 
