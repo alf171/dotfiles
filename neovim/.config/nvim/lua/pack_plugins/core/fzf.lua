@@ -1,10 +1,11 @@
 return {
-  'ibhagwan/fzf-lua',
-  dependencies = { 'nvim-mini/mini.icons' },
-  config = function(_, opts)
-    local fzf = require 'fzf-lua'
+  pack = {
+    src = 'https://github.com/ibhagwan/fzf-lua'
+  },
+  setup = function ()
     local map = vim.keymap.set
-    fzf.setup(opts)
+    local fzf = require 'fzf-lua'
+    fzf.setup('fzf-tmux')
 
     map('n', '<leader>f', function()
       fzf.files {

@@ -1,7 +1,8 @@
 return {
-  'folke/tokyonight.nvim',
-  priority = 1000,
-  config = function()
+  pack = {
+    src = 'https://github.com/folke/tokyonight.nvim',
+  },
+  setup = function()
     ---@diagnostic disable-next-line: missing-fields
     require('tokyonight').setup {
       styles = {

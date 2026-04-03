@@ -1,15 +1,4 @@
 return {
-  -- core
-  -- { import = 'plugins.core.lsp' },
-  -- { import = 'plugins.core.blink' },
-  { import = 'plugins.core.tree-sitter' },
-  { import = 'plugins.core.gitsigns' },
-  { import = 'plugins.core.fzf' },
-  { import = 'plugins.core.theme' },
-  { import = 'plugins.core.oil' },
-  { import = 'plugins.core.mini-tabline' },
-  { import = 'plugins.core.mini-cmdline' },
-
   -- misc
   { import = 'plugins.misc.tmux' },
   { import = 'plugins.misc.wakatime' },

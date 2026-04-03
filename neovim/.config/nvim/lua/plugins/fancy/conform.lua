@@ -2,23 +2,20 @@ return {
   'stevearc/conform.nvim',
   event = { 'BufWritePre' },
   opts = {
-    format_on_save = function()
+    format_on_save = function(bufnr)
+      local ft = vim.bo[bufnr].filetype
+      if ft == 'c' or ft == 'cpp' then
+        return nil
+      end
       return { timeout_ms = 500, lsp_format = 'fallback' }
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
-      c = { 'clang-format' },
+      c = { 'uncrustify' },
       cpp = { 'clang-format' },
       typst = { 'typstyle' },
       json = { 'jq' },
       zig = { 'zigfmt' },
-    },
-    formatters = {
-      ['clang-format'] = {
-        prepend_args = {
-          '--style={BasedOnStyle: LLVM, IndentWidth: 2, TabWidth: 2, UseTab: Never, IndentCaseLabels: true}',
-        },
-      },
     },
   },
 }

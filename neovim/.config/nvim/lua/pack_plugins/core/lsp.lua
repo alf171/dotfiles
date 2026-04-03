@@ -49,12 +49,23 @@ return {
           },
         },
       },
-      ts_ls = {},
-      marksman = {},
-      tinymist = {},
-      typstyle = {},
-      jsonls = {},
+      ts_ls = {
+        mason = 'typescript-language-server',
+      },
+      marksman = {
+        mason = 'marksman',
+      },
+      tinymist = {
+        mason = 'tinymist',
+      },
+      typstyle = {
+        mason = 'typstyle',
+      },
+      jsonls = {
+        mason = 'json-lsp',
+      },
       zls = {
+        mason = 'zls',
         settings = {
           zls = {
             single_file_support = false,
@@ -63,9 +74,17 @@ return {
           },
         },
       },
-      pyright = {},
+      pyright = {
+        mason = 'pyright',
+      },
     }
-    local ensure_installed = vim.tbl_keys(servers or {})
+    local ensure_installed = {}
+
+    for _, cfg in pairs(servers) do
+      if cfg.mason then
+        ensure_installed[#ensure_installed + 1] = cfg.mason
+      end
+    end
 
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

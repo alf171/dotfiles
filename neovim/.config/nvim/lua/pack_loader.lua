@@ -17,7 +17,7 @@ function M.setup(plugin_modules)
     end
   end
 
-  vim.pack.add(pack_spec)
+  vim.pack.add(pack_spec, { confirm = false, load = true })
 
   for _, plugin in ipairs(plugins) do
     if plugin.setup then
