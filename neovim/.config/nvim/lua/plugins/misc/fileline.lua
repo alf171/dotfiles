@@ -1,3 +1,5 @@
 return {
-  'lewis6991/fileline.nvim',
+  pack = {
+    src = 'https://github.com/lewis6991/fileline.nvim',
+  },
 }

@@ -20,7 +20,6 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = function()
     -- do not show qf in buff list
     vim.api.nvim_set_option_value('buflisted', false, { buf = 0 })
-
     -- escape closed qf list
     map('n', 'q', '<cmd>cclose<CR>', {
       buffer = true,

@@ -1,9 +1,8 @@
--- auto create pairs of certain symbols
--- things like [({})]
 return {
-  'windwp/nvim-autopairs',
-  event = 'InsertEnter',
-  opts = {
-    map_cr = false,
+  pack = {
+    src = 'https://github.com/windwp/nvim-autopairs',
   },
+  setup = function()
+    require('nvim-autopairs').setup { map_cr = false }
+  end,
 }

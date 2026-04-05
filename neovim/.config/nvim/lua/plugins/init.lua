@@ -1,22 +1,33 @@
 return {
+  -- core
+  'plugins.core.theme',
+  'plugins.core.blink',
+  'plugins.core.lsp',
+  'plugins.core.tree-sitter',
+  'plugins.core.gitsigns',
+  'plugins.core.mini-icons',
+  'plugins.core.fzf',
+  'plugins.core.oil',
+  'plugins.core.mini-tabline',
+  'plugins.core.mini-cmdline',
+
+  -- motions
+  'plugins.motions.mini',
+  'plugins.motions.flash',
+
   -- misc
-  { import = 'plugins.misc.tmux' },
-  { import = 'plugins.misc.wakatime' },
-  { import = 'plugins.misc.todo-comments' },
-  { import = 'plugins.misc.fileline' },
+  'plugins.misc.tmux',
+  'plugins.misc.wakatime',
+  'plugins.misc.todo-comments',
+  'plugins.misc.fileline',
 
   -- fancy
-  { import = 'plugins.fancy.fugitive' },
-  { import = 'plugins.fancy.autopairs' },
-  { import = 'plugins.fancy.indent_line' },
-  { import = 'plugins.fancy.conform' },
-  { import = 'plugins.lang.typst-preview' },
+  'plugins.fancy.autopairs',
 
   -- experimental
-  { import = 'plugins.experimental.undo-tree' },
-  { import = 'plugins.experimental.marks' },
+  'plugins.experimental.marks',
 
   -- handmade
-  -- { import = 'plugins.handmade.quill' },
-  { import = 'plugins.handmade.collab' },
+  -- 'plugins.handmade.quill',
+  'plugins.handmade.collab',
 }

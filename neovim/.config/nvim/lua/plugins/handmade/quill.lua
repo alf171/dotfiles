@@ -1,7 +1,9 @@
 return {
-  -- 'alf171/quill.nvim',
-  dir = '~/projects/nvim-plugins/quill.nvim/',
-  config = function()
+  -- 'https://github.com/alf171/quill.nvim',
+  pack = {
+    src = vim.fn.expand('~/projects/nvim-plugins/quill.nvim/'),
+  },
+  setup = function()
     require('quill').setup {
       notes_path = '~/Desktop/notes/',
       keymaps = {

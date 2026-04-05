@@ -12,10 +12,6 @@ return {
       src = 'https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim',
       version = 'main',
     },
-    -- {
-    --   src = 'https://github.com/saghen/blink.cmp',
-    --   version = 'main',
-    -- },
     {
       src = 'https://github.com/j-hui/fidget.nvim',
       version = 'main',
@@ -28,7 +24,7 @@ return {
   setup = function()
     require('mason').setup()
 
-    local blink = require 'pack_plugins.core.blink'
+    local blink = require 'plugins.core.blink'
     local capabilities = blink.get_lsp_capabilities()
     local mason_bin = vim.fn.stdpath 'data' .. '/mason/bin/clangd'
 
@@ -143,7 +139,7 @@ return {
 
         -- LSP go to def
         map('gd', function()
-          vim.lsp.buf.definition { reuse_win = true }
+          vim.lsp.buf.definition { switchbuf = true }
         end, '[G]oto [D]efinition')
 
         -- Find references for the word under your cursor.

@@ -8,13 +8,17 @@
 -- m:x preview mark x in floating window
 -- bookmark groups things not mentioned here
 return {
-  'chentoast/marks.nvim',
-  event = 'VeryLazy',
-  opts = {
-    builtin_marks = { '.', '<', '>', '`' },
-    -- can consider messing with shada at some point
-    force_write_shada = false,
-    -- default 150
-    refresh_interval = 250,
+  pack = {
+    src = 'https://github.com/chentoast/marks.nvim',
   },
+  setup = function()
+    local marks = require 'marks'
+    marks.setup {
+      builtin_marks = { '.', '<', '>', '`' },
+      -- can consider messing with shada at some point
+      force_write_shada = false,
+      -- default 150
+      refresh_interval = 250,
+    }
+  end,
 }

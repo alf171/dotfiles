@@ -1,7 +1,9 @@
 return {
-  -- 'alf171/collab.nvim',
-  dir = '~/projects/nvim-plugins/collab.nvim/',
-  config = function()
-    require('collab').setup {}
+  -- 'https://github.com/alf171/collab.nvim',
+  pack = {
+    src = vim.fn.expand '~/projects/nvim-plugins/collab.nvim',
+  },
+  setup = function()
+    require('collab').setup()
   end,
 }
