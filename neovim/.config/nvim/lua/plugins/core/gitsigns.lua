@@ -1,3 +1,4 @@
+-- TODO: consider walking up tree of BufEnter looking for .git for gitsigns to always work without needing to explicity enter at working dir
 return {
   pack = {
     src = 'https://github.com/lewis6991/gitsigns.nvim',

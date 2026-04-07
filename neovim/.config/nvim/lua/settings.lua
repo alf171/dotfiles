@@ -67,5 +67,5 @@ vim.o.omnifunc = ''
 -- prefer error > warn > info > hint
 vim.diagnostic.config { severity_sort = true }
 
--- enable ui2
-require('vim._core.ui2').enable {}
+-- NOTE: vim._core.ui2 redraw can invoke mini.tabline/mini.icons on a special or unnamed buffer, causing mini.icons to call vim.filetype.match() with an invalid f ilename and crash in filetype detection.
+-- require('vim._core.ui2').enable {}
