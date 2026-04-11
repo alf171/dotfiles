@@ -73,3 +73,6 @@ map('n', '<C-u>', '<C-u>zz')
 -- map('n', '<C-b>', '<C-b>zz')
 
 map('n', '<leader><leader>r', '<cmd>source %<CR>')
+
+-- move to alternate buffer
+map('n', '<leader>a', ':edit #<CR>')
