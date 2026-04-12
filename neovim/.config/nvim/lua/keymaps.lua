@@ -38,7 +38,9 @@ map('n', '<C-o>', '<C-i>')
 map({ 'n', 'x' }, 'gh', '<Nop>', { noremap = true, silent = true })
 map({ 'n', 'x' }, 'gh', '^')
 map({ 'n', 'x' }, 'gl', '<Nop>', { noremap = true, silent = true })
-map({ 'n', 'x' }, 'gl', '$')
+-- $ has EOL semantics for {j, gj, k, gk} so going to last char to avoid this
+map({ 'n', 'x' }, 'gl', 'g_')
+
 
 -- disable s key since we will focus on flash using it
 map('n', 's', '<Nop>')
