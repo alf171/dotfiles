@@ -29,6 +29,15 @@ map('n', '<C-k>', '<C-w><C-k>', { desc = 'Up window' })
 map('n', 'H', 'gT', { desc = 'Prev tab' })
 map('n', 'L', 'gt', { desc = 'Next tab' })
 
+for i = 1, 9 do
+  map({'n', 'x'}, '<leader>' .. i, function()
+    local bufs = vim.fn.getbufinfo({ buflisted = 1 })
+    if bufs[i] then
+      vim.api.nvim_set_current_buf(bufs[i].bufnr)
+    end
+  end, { desc = "go to buffer " .. i })
+end
+
 -- Swap <C-i>/<C-o>
 map('n', '<C-i>', '<C-o>')
 map('n', '<C-o>', '<C-i>')
