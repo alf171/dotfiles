@@ -64,15 +64,6 @@ map('x', 'S', '<Nop>', { silent = true })
 -- Opposite of J (just break the line at cursor)
 map('n', 'S', '"_cl<CR><Esc>', { desc = 'Split line at cursor' })
 
--- Remap gx since it conflicts with mini operators -- use gg instead (go does same thing)
-map('n', 'gg', '<Nop>')
-map('n', 'gg', '<Cmd>silent! execute "!open " . shellescape(expand("<cfile>"))<CR>', { desc = 'Open link under cursor' })
-
--- delete buffer
-map('n', '<leader>db', function()
-  require('mini.bufremove').delete(0, false)
-end, { desc = 'Delete buffer' })
-
 -- remap command mode to ;
 -- map({ 'n', 'v', 'x' }, ';', ':', { desc = 'Self explanatory' })
 -- map({ 'n', 'v', 'x' }, ':', ';', { desc = 'Self explanatory' })

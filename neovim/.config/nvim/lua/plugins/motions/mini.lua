@@ -13,6 +13,10 @@ return {
     local ai = require 'mini.ai'
     ai.setup {
       n_lines = 500,
+      mappings = {
+        around_last = '',
+        inside_last = ''
+      },
       custom_textobjects = {
         f = ai.gen_spec.treesitter { a = '@function.outer', i = '@function.inner' },
         c = ai.gen_spec.treesitter { a = '@class.outer', i = '@class.inner' },
@@ -41,6 +45,11 @@ return {
     -- ga is visual mode also works
     -- both don't work with . repeat like normal mode version of ga does
     map('x', 'S', [[:<C-u>lua MiniSurround.add('visual')<CR>]], { silent = true })
+
+
+    -- Remap gx since it conflicts with mini operators -- use gg instead (go does same thing)
+    map('n', 'gg', '<Nop>')
+    map('n', 'gg', '<Cmd>silent! execute "!open " . shellescape(expand("<cfile>"))<CR>', { desc = 'Open link under cursor' })
 
     -- gr/grr for replace
     -- gm/gmm for multiply
@@ -71,5 +80,10 @@ return {
       buf_remove.delete(0, false)
     end, { silent = true, desc = 'Close tab (maintain windows)' })
     map('n', '<leader>X', '<cmd>bd<cr>', { silent = true, desc = 'Hard close tab' })
+
+    -- delete buffer
+    map('n', '<leader>db', function()
+      require('mini.bufremove').delete(0, false)
+    end, { desc = 'Delete buffer' })
   end,
 }

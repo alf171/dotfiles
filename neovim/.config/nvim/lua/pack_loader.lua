@@ -45,4 +45,26 @@ function M.setup(plugin_modules)
   end
 end
 
+---@param module_name string
+local reload_plugin = function(module_name)
+  M.config.loaded[module_name] = nil
+  package.loaded[module_name] = nil
+
+  local plugin = require(module_name)
+  M.load_plugin(module_name, plugin)
+end
+
+function M.reload_all(plugin_modules)
+  for _, module_name in ipairs(plugin_modules) do
+    M.config.loaded[module_name] = nil
+    package.loaded[module_name] = nil
+  end
+
+  for _, module_name in ipairs(plugin_modules) do
+    local plugin = require(module_name)
+    M.load_plugin(module_name, plugin)
+  end
+end
+
+
 return M
