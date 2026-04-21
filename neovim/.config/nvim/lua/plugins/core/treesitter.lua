@@ -11,6 +11,7 @@ return {
     },
   },
   setup = function()
+    -- Keep the zz override independent from plugin init success.
     local ok, configs = pcall(require, 'nvim-treesitter.configs')
     if not ok then
       return
@@ -31,6 +32,7 @@ return {
         'vim',
         'vimdoc',
         'zig',
+        'gitignore'
       },
       auto_install = true,
       highlight = { enable = true },
@@ -46,7 +48,27 @@ return {
       },
     }
 
-    require('treesitter-context').setup {
+    local context = require('treesitter-context')
+    -- NOTE: still a wip
+    vim.keymap.set("n", "zz", function()
+      local _, context_mod = pcall(require, 'treesitter-context.context')
+      local _, context_util = pcall(require, 'treesitter-context.util')
+
+      local context_ranges = context_mod.get(vim.api.nvim_get_current_win())
+      if not context_ranges or #context_ranges == 0 then
+        vim.cmd("normal! zz")
+        return
+      end
+
+      local context_height = 0
+      for _, range in ipairs(context_ranges) do
+        context_height = context_height + context_util.get_range_height(range)
+        vim.print("offseting by" .. context_height)
+      end
+
+    end, { desc = "Center cursor with treesitter context offset" })
+
+    context.setup {
       enable = true,
       max_lines = 3,
       line_numbers = true,

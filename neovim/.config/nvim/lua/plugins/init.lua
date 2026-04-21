@@ -3,7 +3,7 @@ return {
   'plugins.core.theme',
   'plugins.core.blink',
   'plugins.core.lsp',
-  'plugins.core.tree-sitter',
+  'plugins.core.treesitter',
   'plugins.core.gitsigns',
   'plugins.core.mini-icons',
   'plugins.core.fzf',
