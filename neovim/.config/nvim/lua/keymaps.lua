@@ -78,3 +78,35 @@ map('n', '<leader><leader>r', '<cmd>source %<CR>')
 
 -- move to alternate buffer
 map('n', '<leader>a', ':edit #<CR>')
+
+-- (il, al) text-objects => (inside line, all lines)
+-- copied from: https://github.com/justinmk/config/blob/1a7c39e31692cf61444cc75a0371358aff978048/.config/nvim/lua/my/keymaps.lua#L89
+local function entire_buffer_textobj()
+  if vim.fn.empty(vim.fn.getline(1)) == 1 and vim.fn.line('$') == 1 then
+    return '<Esc>'
+  end
+
+  vim.fn.setpos("'[", { 0, 1, 1, 0 })
+  vim.fn.setpos("']", { 0, vim.fn.line('$'), 1, 0 })
+  return "'[o']"
+end
+
+local function line_inner_movement()
+  if vim.fn.empty(vim.fn.getline('.')) == 1 then
+    return '<Esc>'
+  end
+
+  local lnum = vim.fn.line('.')
+  local copen = 1
+  local cclose = vim.fn.col('$') - 1
+
+  vim.fn.setpos("'[", { 0, lnum, copen, 0 })
+  vim.fn.setpos("']", { 0, lnum, cclose, 0 })
+
+  return "`[o`]"
+end
+
+map('x', 'al', entire_buffer_textobj, { expr = true })
+map('o', 'al', ':<C-U>normal Val<CR>', { silent = true })
+map('x', 'il', line_inner_movement, { expr = true })
+map('o', 'il', ':<C-U>normal vil<CR>', { silent = true })
