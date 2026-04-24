@@ -110,3 +110,10 @@ map('x', 'al', entire_buffer_textobj, { expr = true })
 map('o', 'al', ':<C-U>normal Val<CR>', { silent = true })
 map('x', 'il', line_inner_movement, { expr = true })
 map('o', 'il', ':<C-U>normal vil<CR>', { silent = true })
+
+-- better restart
+map('n', 'ZR', function()
+  local session = vim.fn.stdpath('state') .. '/restart_session.vim'
+  vim.cmd('mksession! ' .. vim.fn.fnameescape(session))
+  vim.cmd('restart source ' .. vim.fn.fnameescape(session))
+end, { desc = 'Restart Neovim' })
