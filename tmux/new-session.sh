@@ -18,14 +18,16 @@ else
 selected=$(find ~/dotfiles ~/projects ~/projects/nvim-plugins \
   -mindepth 1 -maxdepth 1 -type d 2>/dev/null |
   fzf --no-height --border --reverse \
-    --prompt='window> '
+    --prompt='session> '
 ) || exit 0
 fi
 
 [[ -z $selected ]] && exit 0
 name=$(basename "$selected" | tr . _)
 
-# Jump if window name exists; else create it in current session
-tmux list-windows -F '#W' | grep -Fxq "$name" \
-  && tmux select-window -t "$name" \
-  || tmux new-window -c "$selected" -n "$name"
+if tmux has-session -t "=$name" 2>/dev/null; then
+  tmux switch-client -t "=$name"
+else
+  tmux new-session -d -s "$name" -c "$selected"
+  tmux switch-client -t "=$name"
+fi
