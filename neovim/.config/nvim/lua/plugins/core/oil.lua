@@ -19,6 +19,7 @@ return {
         ['<C-v>'] = 'actions.preview',
         ['q'] = { 'actions.close', mode = 'n' },
         ['<C-l>'] = false,
+        ['<C-h>'] = false,
         ['<C-r>'] = 'actions.refresh',
       },
     }
