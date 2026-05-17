@@ -51,6 +51,10 @@ export PATH="/Users/alaffont/.local/bin:$PATH"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if command -v fzf-share >/dev/null 2>&1; then
+  source "$(fzf-share)/key-bindings.zsh"
+  source "$(fzf-share)/completion.zsh"
+fi
 export FZF_DEFAULT_OPTS="
 --bind=ctrl-j:down
 --bind=ctrl-k:up
