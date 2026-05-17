@@ -26,6 +26,7 @@ return {
 
   -- experimental
   'plugins.experimental.marks',
+  'plugins.experimental.fugative',
 
   -- handmade
   -- 'plugins.handmade.quill',
