@@ -79,7 +79,7 @@ map('n', '<leader><leader>r', '<cmd>source %<CR>')
 -- move to alternate buffer
 map('n', '<leader>a', ':edit #<CR>')
 
--- (il, al) text-objects => (inside line, all lines)
+-- (ae, al) text-objects => (around entire, around line)
 -- copied from: https://github.com/justinmk/config/blob/1a7c39e31692cf61444cc75a0371358aff978048/.config/nvim/lua/my/keymaps.lua#L89
 local function entire_buffer_textobj()
   if vim.fn.empty(vim.fn.getline(1)) == 1 and vim.fn.line('$') == 1 then
@@ -106,10 +106,10 @@ local function line_inner_movement()
   return "`[o`]"
 end
 
-map('x', 'al', entire_buffer_textobj, { expr = true })
-map('o', 'al', ':<C-U>normal Val<CR>', { silent = true })
-map('x', 'il', line_inner_movement, { expr = true })
-map('o', 'il', ':<C-U>normal vil<CR>', { silent = true })
+map('x', 'aL', entire_buffer_textobj, { expr = true })
+map('o', 'aL', ':<C-U>normal Val<CR>', { silent = true })
+map('x', 'iL', line_inner_movement, { expr = true })
+map('o', 'iL', ':<C-U>normal vil<CR>', { silent = true })
 
 -- better restart
 map('n', 'ZR', function()

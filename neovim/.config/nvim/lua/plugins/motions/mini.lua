@@ -13,10 +13,6 @@ return {
     local ai = require 'mini.ai'
     ai.setup {
       n_lines = 500,
-      mappings = {
-        around_last = '',
-        inside_last = ''
-      },
       custom_textobjects = {
         f = ai.gen_spec.treesitter { a = '@function.outer', i = '@function.inner' },
         c = ai.gen_spec.treesitter { a = '@class.outer', i = '@class.inner' },
