@@ -14,5 +14,7 @@
     vim
   ];
 
+  environment.variables.SDKROOT = "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk";
+
   system.stateVersion = 5;
 }
