@@ -12,13 +12,13 @@ return {
     src = 'https://github.com/chentoast/marks.nvim',
   },
   setup = function()
-    local marks = require 'marks'
-    marks.setup {
-      builtin_marks = { '.', '<', '>', '`' },
-      -- can consider messing with shada at some point
-      force_write_shada = false,
-      -- default 150
-      refresh_interval = 250,
-    }
+  --   local marks = require 'marks'
+  --   marks.setup {
+  --     builtin_marks = { '.', '<', '>', '`' },
+  --     -- can consider messing with shada at some point
+  --     force_write_shada = false,
+  --     -- default 150
+  --     refresh_interval = 250,
+  --   }
   end,
 }
