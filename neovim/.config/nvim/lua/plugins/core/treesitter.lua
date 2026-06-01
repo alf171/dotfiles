@@ -12,13 +12,12 @@ return {
   },
   setup = function()
     -- Keep the zz override independent from plugin init success.
-    local ok, configs = pcall(require, 'nvim-treesitter.configs')
+    local ok, treesitter = pcall(require, 'nvim-treesitter')
     if not ok then
       return
     end
 
-    configs.setup {
-      ensure_installed = {
+    local languages = {
         'bash',
         'c',
         'cpp',
@@ -33,20 +32,22 @@ return {
         'vimdoc',
         'zig',
         'gitignore'
-      },
-      auto_install = true,
-      highlight = { enable = true },
-      indent = { enable = true },
-      textobjects = {
-        select = {
-          enable = true,
-          lookahead = true,
-        },
-        move = {
-          enable = true,
-        },
-      },
     }
+
+    treesitter.setup({
+      install_dir = vim.fn.stdpath('data') .. "/site",
+    })
+
+    treesitter.install(languages)
+
+      vim.api.nvim_create_autocmd('FileType', {
+        group = vim.api.nvim_create_augroup('user_treesitter_start', { clear = true }),
+        callback = function()
+          pcall(vim.treesitter.start)
+          vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end,
+      })
 
     local context = require('treesitter-context')
     -- NOTE: still a wip

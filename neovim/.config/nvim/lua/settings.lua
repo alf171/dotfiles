@@ -59,7 +59,7 @@ vim.opt.swapfile = false
 -- tree sitter folding
 vim.opt.foldmethod = 'expr'
 vim.opt.foldlevel = 99
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 
 -- use blink for autocmds
 vim.o.omnifunc = ''
