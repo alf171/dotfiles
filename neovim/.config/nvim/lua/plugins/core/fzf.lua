@@ -18,7 +18,9 @@ return {
     end, { desc = 'fuzzy search for files with preview' })
 
     map('n', '<leader>sg', function()
-      fzf.live_grep()
+      fzf.live_grep({
+        no_esc = 2
+      })
     end, { desc = 'grep for contents of a file' })
 
     map('n', '<leader>s.', function()
@@ -27,6 +29,7 @@ return {
 
     map('n', '<leader>o', function()
       fzf.buffers {
+        filename_only = true,
         previewer = false,
       }
     end, { desc = 'list open buffers' })
