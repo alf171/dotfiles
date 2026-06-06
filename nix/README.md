@@ -27,7 +27,7 @@ home.packages = with pkgs; [
 
 Then apply:
 
-sudo nix run github:LnL7/nix-darwin -- switch --flake .#macbook
+sudo nix run github:LnL7/nix-darwin -- switch --flake ~/dotfiles#macbook
 
 Find Package Names
 Search packages:

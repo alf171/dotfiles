@@ -19,5 +19,7 @@
     lua-language-server
     nil
     stylua
+
+    cloc
   ];
 }
