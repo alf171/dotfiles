@@ -1,9 +1,9 @@
 1. System Apply
 Use this when you change your flake, packages, Home Manager config, etc.
 
-From ~/dotfiles:
+Anywhere, run
 
-sudo nix run github:LnL7/nix-darwin -- switch --flake .#macbook
+`sudo nix run github:LnL7/nix-darwin -- switch --flake ~/dotfiles#macbook`
 
 Eventually this may also work once root has flakes enabled:
 
@@ -27,7 +27,7 @@ home.packages = with pkgs; [
 
 Then apply:
 
-sudo nix run github:LnL7/nix-darwin -- switch --flake ~/dotfiles#macbook
+`sudo nix run github:LnL7/nix-darwin -- switch --flake ~/dotfiles#macbook`
 
 Find Package Names
 Search packages:

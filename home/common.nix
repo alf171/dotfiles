@@ -21,5 +21,6 @@
     stylua
 
     cloc
+    rust
   ];
 }
