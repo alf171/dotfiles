@@ -34,11 +34,15 @@
         ];
       };
 
-    homeConfigurations."alaffont@linux" =
+    homeConfigurations."alaffont@firecracker" =
       home-manager.lib.homeManagerConfiguration {
         pkgs = mkPkgs "x86_64-linux";
 
         modules = [
+          {
+            home.username = "alaffont";
+            home.homeDirectory = "/home/alaffont";
+          }
           ./home/common.nix
         ];
       };

@@ -21,6 +21,8 @@
     stylua
 
     cloc
-    rust
+    rustup
+
+    man-pages
   ];
 }
